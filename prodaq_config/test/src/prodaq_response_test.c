@@ -17,7 +17,7 @@
 void response_message_from_json_test(void)
 {
     // Arrange
-    cJSON *json = json_read_file(MOCK_RESPONSE_MESSAGE_JSON);
+    cJSON *json = json_read_file(MOCK_RESPONSE_MESSAGE_DATA_JSON);
     response_message_t expected = { 0 };
     response_message_t  actual = { 0 };
     expected = (response_message_t) MOCK_RESPONSE;
