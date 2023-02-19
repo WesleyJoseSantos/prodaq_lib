@@ -14,6 +14,7 @@
         "prodaq_mocks.h": "c",
         "prodaq_http.h": "c",
         "prodaq_message_id.h": "c",
-        "hardware_message.h": "c"
+        "hardware_message.h": "c",
+        "prodaq_request.h": "c"
     }
 }
