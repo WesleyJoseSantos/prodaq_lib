@@ -35,6 +35,7 @@ add_executable(${PROJECT_NAME}
     src/prodaq_fm_test.c
     src/prodaq_message_data_test.c
     src/prodaq_message_test.c
+    src/prodaq_request_test.c
     src/prodaq_response_test.c
 
     ../../cJSON/cJSON.c
