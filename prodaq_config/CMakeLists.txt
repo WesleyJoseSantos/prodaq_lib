@@ -30,6 +30,7 @@ add_library(${PROJECT_NAME}
     src/prodaq_fm.c
     src/prodaq_message_data.c
     src/prodaq_message.c
+    src/prodaq_request.c
     src/prodaq_response.c
     
     ../cJSON/cJSON.c
