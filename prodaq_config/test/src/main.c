@@ -79,36 +79,31 @@ int main(void)
     RUN_TEST(prodaq_fm_save_test);
     RUN_TEST(prodaq_fm_load_test);
     RUN_TEST(message_data_hardware_type_from_json_test);
-    RUN_TEST(message_data_protocol_type_from_json_test);
-    RUN_TEST(message_data_device_type_from_json_test);
-    RUN_TEST(message_data_request_type_from_json_test);
-    RUN_TEST(message_data_response_type_from_json_test);
-
     RUN_TEST(message_data_hardware_type_to_json_test);
+    RUN_TEST(message_data_protocol_type_from_json_test);
     RUN_TEST(message_data_protocol_type_to_json_test);
+    RUN_TEST(message_data_device_type_from_json_test);
     RUN_TEST(message_data_device_type_to_json_test);
+    RUN_TEST(message_data_request_type_from_json_test);
     RUN_TEST(message_data_request_type_to_json_test);
+    RUN_TEST(message_data_response_type_from_json_test);
     RUN_TEST(message_data_response_type_to_json_test);
-
     RUN_TEST(request_message_from_json_test);
     RUN_TEST(request_message_to_json_test);
     RUN_TEST(response_message_from_json_test);
     RUN_TEST(response_message_to_json_test);
-
     RUN_TEST(message_wifi_from_json_test);
     RUN_TEST(message_wifi_to_json_test);
     RUN_TEST(message_ethernet_from_json_test);
     RUN_TEST(message_ethernet_to_json_test);
     RUN_TEST(message_uart_from_json_test);
     RUN_TEST(message_uart_to_json_test);
-    
     RUN_TEST(message_ntp_from_json_test);
     RUN_TEST(message_ntp_to_json_test);
     RUN_TEST(message_http_from_json_test);
     RUN_TEST(message_http_to_json_test);
     RUN_TEST(message_mqtt_from_json_test);
     RUN_TEST(message_mqtt_to_json_test);
-
     RUN_TEST(message_request_from_json_test);
     RUN_TEST(message_request_to_json_test);
     RUN_TEST(message_response_from_json_test);

@@ -35,75 +35,6 @@ void message_data_hardware_type_from_json_test(void)
     TEST_ASSERT_EQUAL_MEMORY(&expected, &actual.hardware, sizeof(hardware_message_t));
 }
 
-void message_data_protocol_type_from_json_test(void)
-{
-    // Arrange
-    cJSON *json = json_read_file(MOCK_MQTT_MESSAGE_DATA_JSON);
-    protocol_message_t expected = { 0 };
-    message_data_t  actual = { 0 };
-    expected.type = PROTOCOL_MQTT;
-    expected.enabled = true;
-    expected.config.mqtt = (mqtt_config_t) MOCK_MQTT_CONFIG;
-
-    // Act
-    prodaq_err_t err = message_data_from_json(json, &actual, MSG_ID_PROTOCOL_CONFIG);
-
-    // Assert
-    TEST_ASSERT_EQUAL(PRODAQ_OK, err);
-    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual.protocol, sizeof(protocol_message_t));
-}
-
-void message_data_device_type_from_json_test(void)
-{
-    // Arrange
-    cJSON *json = json_read_file(MOCK_SENSOR_MESSAGE_JSON);
-    device_message_t expected = { 0 };
-    message_data_t  actual = { 0 };
-    expected.type = DEVICE_SENSOR;
-    expected.enabled = true;
-    expected.config.sensor = (sensor_config_t) MOCK_SENSOR_CONFIG;
-
-    // Act
-    prodaq_err_t err = message_data_from_json(json, &actual, MSG_ID_DEVICE_CONFIG);
-
-    // Assert
-    TEST_ASSERT_EQUAL(PRODAQ_OK, err);
-    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual.device, sizeof(device_message_t));
-}
-
-void message_data_request_type_from_json_test(void)
-{
-    // Arrange
-    cJSON *json = json_read_file(MOCK_REQUEST_MESSAGE_DATA_JSON);
-    message_data_t expected = { 0 };
-    message_data_t  actual = { 0 };
-    expected.request = (request_message_t) MOCK_REQUEST;
-
-    // Act
-    prodaq_err_t err = message_data_from_json(json, &actual, MSG_ID_REQUEST);
-
-    // Assert
-    TEST_ASSERT_EQUAL(PRODAQ_OK, err);
-    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual.request, sizeof(request_message_t));
-}
-
-void message_data_response_type_from_json_test(void)
-{
-    // Arrange
-    cJSON *json = json_read_file(MOCK_RESPONSE_MESSAGE_DATA_JSON);
-    message_data_t expected = { 0 };
-    message_data_t  actual = { 0 };
-    expected.response = (response_message_t) MOCK_RESPONSE;
-
-    // Act
-    prodaq_err_t err = message_data_from_json(json, &actual, MSG_ID_RESPONSE);
-
-    // Assert
-    TEST_ASSERT_EQUAL(PRODAQ_OK, err);
-    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual.response, sizeof(response_message_t));
-}
-
-
 void message_data_hardware_type_to_json_test(void)
 {
     // Arrange
@@ -124,6 +55,24 @@ void message_data_hardware_type_to_json_test(void)
     TEST_ASSERT_EQUAL_MEMORY(&expected, &actual, sizeof(message_data_t));
 
     cJSON_Delete(json);
+}
+
+void message_data_protocol_type_from_json_test(void)
+{
+    // Arrange
+    cJSON *json = json_read_file(MOCK_MQTT_MESSAGE_DATA_JSON);
+    protocol_message_t expected = { 0 };
+    message_data_t  actual = { 0 };
+    expected.type = PROTOCOL_MQTT;
+    expected.enabled = true;
+    expected.config.mqtt = (mqtt_config_t) MOCK_MQTT_CONFIG;
+
+    // Act
+    prodaq_err_t err = message_data_from_json(json, &actual, MSG_ID_PROTOCOL_CONFIG);
+
+    // Assert
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err);
+    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual.protocol, sizeof(protocol_message_t));
 }
 
 void message_data_protocol_type_to_json_test(void)
@@ -148,6 +97,24 @@ void message_data_protocol_type_to_json_test(void)
     cJSON_Delete(json);
 }
 
+void message_data_device_type_from_json_test(void)
+{
+    // Arrange
+    cJSON *json = json_read_file(MOCK_SENSOR_MESSAGE_JSON);
+    device_message_t expected = { 0 };
+    message_data_t  actual = { 0 };
+    expected.type = DEVICE_SENSOR;
+    expected.enabled = true;
+    expected.config.sensor = (sensor_config_t) MOCK_SENSOR_CONFIG;
+
+    // Act
+    prodaq_err_t err = message_data_from_json(json, &actual, MSG_ID_DEVICE_CONFIG);
+
+    // Assert
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err);
+    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual.device, sizeof(device_message_t));
+}
+
 void message_data_device_type_to_json_test(void)
 {
     // Arrange
@@ -170,6 +137,22 @@ void message_data_device_type_to_json_test(void)
     cJSON_Delete(json);
 }
 
+void message_data_request_type_from_json_test(void)
+{
+    // Arrange
+    cJSON *json = json_read_file(MOCK_REQUEST_MESSAGE_DATA_JSON);
+    message_data_t expected = { 0 };
+    message_data_t  actual = { 0 };
+    expected.request = (request_message_t) MOCK_REQUEST;
+
+    // Act
+    prodaq_err_t err = message_data_from_json(json, &actual, MSG_ID_REQUEST);
+
+    // Assert
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err);
+    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual.request, sizeof(request_message_t));
+}
+
 void message_data_request_type_to_json_test(void)
 {
     // Arrange
@@ -188,6 +171,22 @@ void message_data_request_type_to_json_test(void)
     TEST_ASSERT_EQUAL_MEMORY(&expected, &actual, sizeof(message_data_t));
 
     cJSON_Delete(json);
+}
+
+void message_data_response_type_from_json_test(void)
+{
+    // Arrange
+    cJSON *json = json_read_file(MOCK_RESPONSE_MESSAGE_DATA_JSON);
+    message_data_t expected = { 0 };
+    message_data_t  actual = { 0 };
+    expected.response = (response_message_t) MOCK_RESPONSE;
+
+    // Act
+    prodaq_err_t err = message_data_from_json(json, &actual, MSG_ID_RESPONSE);
+
+    // Assert
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err);
+    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual.response, sizeof(response_message_t));
 }
 
 void message_data_response_type_to_json_test(void)
