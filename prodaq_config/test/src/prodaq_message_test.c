@@ -233,6 +233,43 @@ void message_mqtt_to_json_test(void)
     cJSON_Delete(json);
 }
 
+
+void message_request_from_json_test(void)
+{
+    // Arrange
+    cJSON *json = json_read_file(MOCK_REQUEST_MESSAGE_JSON);
+    message_t expected = {0};
+    message_t actual = {0};
+    expected = (message_t) MOCK_REQUEST_MESSAGE;
+
+    // Act
+    prodaq_err_t err = message_from_json(json, &actual);
+
+    // Assert
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err);
+    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual, sizeof(message_t));
+}
+
+void message_request_to_json_test(void)
+{
+    // Arrange
+    cJSON *json = cJSON_CreateObject();
+    message_t expected = {0};
+    message_t actual = {0};
+    expected = (message_t) MOCK_REQUEST_MESSAGE;
+
+    // Act
+    prodaq_err_t err1 = message_to_json(&expected, json);
+    prodaq_err_t err2 = message_from_json(json, &actual);
+
+    // Assert
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err1);
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err2);
+    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual, sizeof(message_t));
+
+    cJSON_Delete(json);
+}
+
 void message_response_from_json_test(void)
 {
     // Arrange
@@ -240,15 +277,6 @@ void message_response_from_json_test(void)
     message_t expected = {0};
     message_t actual = {0};
     expected = (message_t) MOCK_RESPONSE_MESSAGE;
-
-    message_t test = {
-        .id = MSG_ID_RESPONSE,
-        .data = {
-            .response = {
-                .err = PRODAQ_OK
-            }
-        }
-    };
 
     // Act
     prodaq_err_t err = message_from_json(json, &actual);

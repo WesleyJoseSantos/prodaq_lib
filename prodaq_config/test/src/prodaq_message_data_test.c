@@ -13,6 +13,7 @@
 #include "hardware_mocks.h"
 #include "protocol_mocks.h"
 #include "device_mocks.h"
+#include "prodaq_mocks.h"
 #include "json.h"
 #include "unity.h"
 
@@ -69,6 +70,39 @@ void message_data_device_type_from_json_test(void)
     TEST_ASSERT_EQUAL(PRODAQ_OK, err);
     TEST_ASSERT_EQUAL_MEMORY(&expected, &actual.device, sizeof(device_message_t));
 }
+
+void message_data_request_type_from_json_test(void)
+{
+    // Arrange
+    cJSON *json = json_read_file(MOCK_REQUEST_MESSAGE_DATA_JSON);
+    message_data_t expected = { 0 };
+    message_data_t  actual = { 0 };
+    expected.request = (request_message_t) MOCK_REQUEST;
+
+    // Act
+    prodaq_err_t err = message_data_from_json(json, &actual, MSG_ID_REQUEST);
+
+    // Assert
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err);
+    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual.request, sizeof(request_message_t));
+}
+
+void message_data_response_type_from_json_test(void)
+{
+    // Arrange
+    cJSON *json = json_read_file(MOCK_RESPONSE_MESSAGE_DATA_JSON);
+    message_data_t expected = { 0 };
+    message_data_t  actual = { 0 };
+    expected.response = (response_message_t) MOCK_RESPONSE;
+
+    // Act
+    prodaq_err_t err = message_data_from_json(json, &actual, MSG_ID_RESPONSE);
+
+    // Assert
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err);
+    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual.response, sizeof(response_message_t));
+}
+
 
 void message_data_hardware_type_to_json_test(void)
 {
@@ -127,6 +161,46 @@ void message_data_device_type_to_json_test(void)
     // Act
     prodaq_err_t err1 = message_data_to_json(&expected, json, MSG_ID_DEVICE_CONFIG);
     prodaq_err_t err2 = message_data_from_json(json, &actual, MSG_ID_DEVICE_CONFIG);
+
+    // Assert
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err1);
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err2);
+    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual, sizeof(message_data_t));
+
+    cJSON_Delete(json);
+}
+
+void message_data_request_type_to_json_test(void)
+{
+    // Arrange
+    cJSON *json = cJSON_CreateObject();
+    message_data_t expected = {0};
+    message_data_t actual = {0};
+    expected.request = (request_message_t) MOCK_REQUEST;
+
+    // Act
+    prodaq_err_t err1 = message_data_to_json(&expected, json, MSG_ID_REQUEST);
+    prodaq_err_t err2 = message_data_from_json(json, &actual, MSG_ID_REQUEST);
+
+    // Assert
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err1);
+    TEST_ASSERT_EQUAL(PRODAQ_OK, err2);
+    TEST_ASSERT_EQUAL_MEMORY(&expected, &actual, sizeof(message_data_t));
+
+    cJSON_Delete(json);
+}
+
+void message_data_response_type_to_json_test(void)
+{
+    // Arrange
+    cJSON *json = cJSON_CreateObject();
+    message_data_t expected = {0};
+    message_data_t actual = {0};
+    expected.response = (response_message_t) MOCK_RESPONSE;
+
+    // Act
+    prodaq_err_t err1 = message_data_to_json(&expected, json, MSG_ID_RESPONSE);
+    prodaq_err_t err2 = message_data_from_json(json, &actual, MSG_ID_RESPONSE);
 
     // Assert
     TEST_ASSERT_EQUAL(PRODAQ_OK, err1);
