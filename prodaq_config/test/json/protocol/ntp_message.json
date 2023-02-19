@@ -1,0 +1,15 @@
+{
+    "id": 2,
+    "data": {
+        "type": 1,
+        "enabled": true,
+        "config": {
+            "op_mode": 1,
+            "sync_interval": 3600,
+            "sync_mode": 1,
+            "server1": "ntp1.example.com",
+            "server2": "ntp2.example.com",
+            "server3": "ntp3.example.com"
+        }
+    }
+}

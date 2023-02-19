@@ -1,0 +1,15 @@
+{
+    "id": 1,
+    "data": {
+        "type": 3,
+        "enabled": true,
+        "config": {
+            "baud_rate": 115200,
+            "data_bits": 8,
+            "parity": 0,
+            "stop_bits": 1,
+            "flow_ctrl": 0,
+            "rx_flow_ctrl_thresh": 10
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "id": 2,
+  "data": {
+    "type": 2,
+    "enabled": true,
+    "config": {
+      "port": 80,
+      "url": "http://example.com/api",
+      "cert_file": "cert.pem",
+      "transport_type": 1,
+      "auth": {
+        "auth_type": 2,
+        "username": "user123",
+        "password": "password123",
+        "token": null
+      }
+    }
+  }
+}

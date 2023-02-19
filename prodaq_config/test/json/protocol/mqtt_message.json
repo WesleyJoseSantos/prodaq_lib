@@ -1,0 +1,15 @@
+{
+  "id": 2,
+  "data": {
+    "type": 3,
+    "enabled": true,
+    "config": {
+      "host": "mqtt.example.com",
+      "port": 8883,
+      "username": "user123",
+      "password": "password123",
+      "transport": 1,
+      "qos": 0
+    }
+  }
+}

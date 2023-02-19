@@ -1,0 +1,6 @@
+[submodule "lib/cJSON"]
+	path = lib/cJSON
+	url = https://github.com/DaveGamble/cJSON.git
+[submodule "tests/Unity"]
+	path = tests/Unity
+	url = https://github.com/ThrowTheSwitch/Unity.git

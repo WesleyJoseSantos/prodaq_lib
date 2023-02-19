@@ -1,0 +1,8 @@
+{
+    "id": 1234,
+    "interval": 60,
+    "resolution": 10,
+    "samples": 5,
+    "data_type": 0,
+    "hardware": 1
+  }

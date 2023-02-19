@@ -1,0 +1,39 @@
+{
+    "id": 1,
+    "data": {
+        "type": 1,
+        "enabled": true,
+        "config": {
+            "ssid": "my_wifi_ssid",
+            "password": "my_wifi_password",
+            "ip": {
+                "address": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "mask": [
+                    255,
+                    255,
+                    255,
+                    0
+                ],
+                "gateway": [
+                    192,
+                    168,
+                    0,
+                    1
+                ],
+                "dns": [
+                    8,
+                    8,
+                    8,
+                    8
+                ]
+            },
+            "identity": "my_enterprise_identity",
+            "username": "my_enterprise_username"
+        }
+    }
+}
