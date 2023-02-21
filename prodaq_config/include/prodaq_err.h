@@ -1,21 +1,24 @@
 /**
  * @file prodaq_err.h
  * @author your name (you@domain.com)
- * @brief 
+ * @brief
  * @version 0.1
  * @date 2023-02-16
- * 
+ *
  * @copyright Copyright (c) 2023
- * 
+ *
  */
 
 #ifndef __PRODAQ_ERR__H__
 #define __PRODAQ_ERR__H__
 
+#include <stdio.h>
+
 typedef enum
 {
     PRODAQ_OK = 0x0,
-    PRODAQ_ERR_BASE = 0x100,
+
+    // PRODAQ_ERR_BASE = 0x100,
     PRODAQ_ERR_NOT_IMPLEMENTED,
     PRODAQ_ERR_INVALID_ARG,
     PRODAQ_ERR_INVALID_MESSAGE_ID,
@@ -24,8 +27,11 @@ typedef enum
     PRODAQ_ERR_INVALID_SIZE,
     PRODAQ_ERR_WRITE_OPERATION_FAILED,
     PRODAQ_ERR_READ_OPERATION_FAILED,
+    PRODAQ_ERR_NOT_SUPPORTED,
+    PRODAQ_ERR_NO_MEMORY,
+    PRODAQ_ERR_BUFFER_OVERFLOW,
 
-    PRODAQ_ERR_HTTP_BASE = 0x200,
+    // PRODAQ_ERR_HTTP_BASE = 0x200,
     PRODAQ_ERR_HTTP_INIT,
     PRODAQ_ERR_HTTP_SOCKET_CREATE,
     PRODAQ_ERR_HTTP_SOCKET_BIND,
@@ -36,6 +42,62 @@ typedef enum
     PRODAQ_ERR_HTTP_SEND_RESPONSE_FAIL,
     PRODAQ_ERR_HTTP_NOT_FOUND,
     PRODAQ_ERR_HTTP_NULL_REQUEST_HANDLER,
+
+    // PRODAQ_ERR_UART_BASE = 0x300,
+    PRODAQ_ERR_UART_GET_STATE,
+    PRODAQ_ERR_UART_SET_STATE,
+    PRODAQ_ERR_SET_TIMEOUT,
 } prodaq_err_t;
 
-#endif  //!__PRODAQ_ERR__H__
+static const char *const prodaq_err_to_msg[] = {
+    "No error",
+    "Function not implemented",
+    "Invalid argument",
+    "Invalid message ID",
+    "Invalid type",
+    "Not found",
+    "Invalid size",
+    "Write operation failed",
+    "Read operation failed",
+    "Not supported",
+    "No memory",
+    "Buffer overflow",
+    // HTTP
+    "Failed to initialize HTTP",
+    "Failed to create HTTP socket",
+    "Failed to bind HTTP socket",
+    "Failed to listen on HTTP socket",
+    "HTTP connection failed",
+    "Failed to receive HTTP request",
+    "Failed to parse HTTP request",
+    "Failed to send HTTP response",
+    "HTTP resource not found",
+    "Null HTTP request handler",
+    // UART
+    "Failed to get UART state",
+    "Failed to set UART state",
+    "Failed to set timeout",
+};
+
+#define PRODAQ_ERROR_CHECK(x)                                                                         \
+    do                                                                                                \
+    {                                                                                                 \
+        prodaq_err_t err = x;                                                                         \
+        if (err != PRODAQ_OK)                                                                         \
+        {                                                                                             \
+            printf(__FILE__ ":%d: Error %d \"%s\" at " #x "\n", __LINE__, err, prodaq_err_to_msg[err]); \
+        }                                                                                             \
+    } while (0)
+
+#define PRODAQ_ERROR_RETURN(x)                                                                        \
+    do                                                                                                \
+    {                                                                                                 \
+        prodaq_err_t err = x;                                                                         \
+        if (err != PRODAQ_OK)                                                                         \
+        {                                                                                             \
+            printf(__FILE__ ":%d: Error %d \"%s\" at " #x "\n", __LINE__, err, prodaq_err_to_msg[err]); \
+            return err;                                                                               \
+        }                                                                                             \
+    } while (0)
+
+#endif //!__PRODAQ_ERR__H__
