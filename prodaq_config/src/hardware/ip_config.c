@@ -14,6 +14,7 @@
 prodaq_err_t ip_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(ip_config_t))
 {
     PRODAQ_JSON_CHECK_PARAMETERS();
+    PRODAQ_FROM_JSON_BOOLEAN(enabled);
     PRODAQ_FROM_JSON_NUMBER_ARRAY(address);
     PRODAQ_FROM_JSON_NUMBER_ARRAY(mask);
     PRODAQ_FROM_JSON_NUMBER_ARRAY(gateway);
@@ -24,6 +25,7 @@ prodaq_err_t ip_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(ip_config_t))
 prodaq_err_t ip_config_to_json(PRODAQ_TO_JSON_PARAMETERS(ip_config_t))
 {
     PRODAQ_JSON_CHECK_PARAMETERS();
+    PRODAQ_TO_JSON_BOOLEAN(enabled);
     PRODAQ_TO_JSON_NUMBER_ARRAY(address);
     PRODAQ_TO_JSON_NUMBER_ARRAY(mask);
     PRODAQ_TO_JSON_NUMBER_ARRAY(gateway);

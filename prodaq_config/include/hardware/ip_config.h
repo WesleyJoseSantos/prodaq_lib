@@ -13,6 +13,7 @@
 #define __HARDWRE_IP__H__
 
 #include <inttypes.h>
+#include <stdbool.h>
 #include "prodaq_json.h"
 
 /**
@@ -21,6 +22,7 @@
  */
 typedef struct
 {
+    bool enabled;       // Enable IP configuration
     uint8_t address[4]; // Device IP address
     uint8_t mask[4];    // Network IP mask
     uint8_t gateway[4]; // Network Gateway IP
