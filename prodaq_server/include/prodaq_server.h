@@ -24,6 +24,13 @@
 prodaq_err_t prodaq_server_start(int port, char *endpoint);
 
 /**
+ * @brief Server task, that handles clients requisitions
+ * 
+ * @return prodaq_err_t Error code
+ */
+prodaq_err_t prodaq_server_task(void);
+
+/**
  * @brief Stop the prodaq_server server.
  * @return prodaq_err_t Error code
  */
