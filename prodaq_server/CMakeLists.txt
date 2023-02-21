@@ -16,15 +16,8 @@ add_library(prodaq_server
     src/prodaq_http.c
 )
 
-add_executable(prodaq_server_windows
-    examples/prodaq_server_win.c
-)
-
 target_link_libraries(prodaq_server prodaq_config)
 target_link_libraries(prodaq_server ws2_32)
-
-target_link_libraries(prodaq_server_windows prodaq_server)
-target_link_libraries(prodaq_server_windows ws2_32)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
