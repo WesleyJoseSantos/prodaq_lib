@@ -14,6 +14,7 @@
 prodaq_err_t uart_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(uart_config_t))
 {
     PRODAQ_JSON_CHECK_PARAMETERS();
+    PRODAQ_FROM_JSON_NUMBER(num);
     PRODAQ_FROM_JSON_NUMBER(baud_rate);
     PRODAQ_FROM_JSON_NUMBER(data_bits);
     PRODAQ_FROM_JSON_NUMBER(parity);
@@ -26,6 +27,7 @@ prodaq_err_t uart_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(uart_config_t))
 prodaq_err_t uart_config_to_json(PRODAQ_TO_JSON_PARAMETERS(uart_config_t))
 {
     PRODAQ_JSON_CHECK_PARAMETERS();
+    PRODAQ_TO_JSON_NUMBER(num);
     PRODAQ_TO_JSON_NUMBER(baud_rate);
     PRODAQ_TO_JSON_NUMBER(data_bits);
     PRODAQ_TO_JSON_NUMBER(parity);
