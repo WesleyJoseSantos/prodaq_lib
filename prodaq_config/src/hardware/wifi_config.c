@@ -27,6 +27,7 @@ prodaq_err_t wifi_config_to_json(PRODAQ_TO_JSON_PARAMETERS(wifi_config_t))
     PRODAQ_JSON_CHECK_PARAMETERS();
     PRODAQ_TO_JSON_CHAR_ARRAY(ssid);
     PRODAQ_TO_JSON_CHAR_ARRAY(password);
+    PRODAQ_TO_JSON_BOOLEAN(enterprise);
     PRODAQ_TO_JSON_CHAR_ARRAY(identity);
     PRODAQ_TO_JSON_CHAR_ARRAY(username);
     PRODAQ_TO_JSON_OBJ(ip, ip_config_to_json);

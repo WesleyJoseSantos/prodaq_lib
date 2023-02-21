@@ -14,6 +14,7 @@
 
 #include "ip_config.h"
 #include "prodaq_json.h"
+#include <stdbool.h>
 
 /**
  * @brief Wifi configuration
@@ -24,6 +25,7 @@ typedef struct
     char ssid[32];      // Wifi ssid
     char password[32];  // Wifi password
     ip_config_t ip;     // Wifi IP conifguration
+    bool enterprise;    // Enable enterprise credentials
     char identity[127]; // Wifi enterprise identity
     char username[127]; // Wifi enterprise username
 } wifi_config_t;
