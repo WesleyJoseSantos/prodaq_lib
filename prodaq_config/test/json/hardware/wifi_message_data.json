@@ -5,6 +5,7 @@
         "ssid": "my_wifi_ssid",
         "password": "my_wifi_password",
         "ip": {
+            "enabled": false,
             "address": [
                 1,
                 2,
@@ -30,6 +31,7 @@
                 8
             ]
         },
+        "enterprise": true,
         "identity": "my_enterprise_identity",
         "username": "my_enterprise_username"
     }
