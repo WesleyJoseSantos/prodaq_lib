@@ -12,6 +12,10 @@
 #ifndef __PRODAQ_HTTP__H__
 #define __PRODAQ_HTTP__H__
 
+#include "prodaq_err.h"
+#include "prodaq_config.h"
+#include "prodaq_message.h"
+
 #define HTTP_STATUS_CONTINUE "100 Continue"
 #define HTTP_STATUS_SWITCHING_PROTOCOLS "101 Switching Protocols"
 #define HTTP_STATUS_OK "200 OK"
@@ -65,18 +69,6 @@
 #define HTTP_CONTENT_TYPE_MULTIPART_FORM_DATA "multipart/form-data"
 
 /**
- * @brief Define a custom enumeration for error codes returned by HTTP functions
- *
- */
-typedef enum htt_err
-{
-    HTTP_OK = 0,                    // success
-    HTTP_ERR_URL_PARSE_FAIL = -1,   // failed to parse URL from request
-    HTTP_ERR_BODY_PARSE_FAIL = -2,  // failed to parse body from request
-    HTTP_ERR_BUFFER_TOO_SMALL = -3, // the buffer to store the request body is too small
-} http_err_t;
-
-/**
  * @brief Define a custom enumeration for HTTP request methods
  *
  */
@@ -96,49 +88,43 @@ typedef enum http_method
  */
 typedef struct
 {
-    http_method_t method; // HTTP method used for the request
-    char url[256];        // URL requested
-    char body[1023];      // body of the request
+    http_method_t method;               // HTTP method used for the request
+    char url[PRODAQ_SERVER_URL_SIZE];   // URL requested
+    char body[PRODAQ_SERVER_BODY_SIZE]; // body of the request
 } http_request_t;
 
 /**
- * Returns the HTTP method enum corresponding to the given request string.
+ * @brief A struct representing an HTTP server.
  *
- * @param request The request string.
- * @return The HTTP method enum.
  */
-http_method_t prodaq_http_request_get_method(char *request);
+typedef struct
+{
+    char *endpoint;                                                            //< A pointer to a string representing the endpoint.
+    message_t response;                                                        //< A message_t representing the server's response.
+    prodaq_err_t (*on_request)(message_t *);                                   //< A function pointer that takes a message_t pointer and returns a prodaq_err_t value. It is called when the server receives a request.
+    prodaq_err_t (*send_response)(void *, const char *, const char *, char *); //< A function pointer that takes a void pointer, two strings, and a char pointer, and returns a prodaq_err_t value. It is called to send the server's response.
+} http_server_t;
 
 /**
- * Copies the URL from the request string to the buffer, ensuring that it is null-terminated
- * and does not exceed the buffer size.
- *
- * @param request The request string.
- * @param buf The buffer to copy the URL to.
- * @param len The size of the buffer.
- * @return An HTTP error code indicating success or failure.
+ * @brief Processes an HTTP request received by the server.
+ * 
+ * @param server A pointer to the HTTP server.
+ * @param request A char pointer representing the request.
+ * @param client A void pointer representing the client.
+ * @return prodaq_err_t A prodaq_err_t value indicating the success or failure of the operation.
  */
-http_err_t prodaq_http_request_get_url(char *request, char *buf, size_t len);
+prodaq_err_t prodaq_http_process_request(http_server_t *server, char *request, void *client);
 
 /**
- * Copies the message body from the request string to the buffer, ensuring that it is null-terminated
- * and does not exceed the buffer size.
- *
- * @param request The request string.
- * @param buffer The buffer to copy the message body to.
- * @param len The size of the buffer.
- * @return An HTTP error code indicating success or failure.
+ * @brief Builds an HTTP response.
+ * 
+ * @param status_code A const char pointer representing the status code.
+ * @param content_type A const char pointer representing the content type.
+ * @param body A char pointer representing the body.
+ * @param buf A char pointer representing the buffer to write the response to.
+ * @param len A size_t representing the length of the buffer.
+ * @return int A size_t representing the length of the buffer.
  */
-http_err_t prodaq_http_request_get_body(char *request, char *buffer, size_t len);
-
-/**
- * Parses the given HTTP request string and populates an HTTP request struct with the method,
- * URL, and message body.
- *
- * @param request_str The HTTP request string.
- * @param request The HTTP request struct to populate.
- * @return An HTTP error code indicating success or failure.
- */
-http_err_t prodaq_http_parse_request(char *request_str, http_request_t *request);
+int prodaq_http_build_response(const char *status_code, const char *content_type, char *body, char *buf, size_t len);
 
 #endif //!__PRODAQ_HTTP__H__
