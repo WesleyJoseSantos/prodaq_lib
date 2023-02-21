@@ -17,6 +17,7 @@
 #include "prodaq_server.h"
 #include "prodaq_hardware.h"
 #include "prodaq_protocol.h"
+#include "prodaq_fm.h"
 #include "prodaq_err.h"
 
 prodaq_err_t prodaq_app_load_config(const char *filename, message_t *message, message_id_t id, size_t size);
@@ -24,8 +25,8 @@ prodaq_err_t prodaq_app_process_request(request_message_t *request);
 
 prodaq_err_t prodaq_app_start(void)
 {
-    message_t message;
-    
+    message_t message = {0};
+
     // Load Hardware Settings
     PRODAQ_ERROR_CHECK(prodaq_app_load_config(PRODAQ_FILENAME_WIFI, &message, MSG_ID_HARDWARE_CONFIG, sizeof(message.data.hardware)));
     PRODAQ_ERROR_CHECK(prodaq_app_load_config(PRODAQ_FILENAME_ETHERNET, &message, MSG_ID_HARDWARE_CONFIG, sizeof(message.data.hardware)));
@@ -79,7 +80,7 @@ prodaq_err_t prodaq_app_send_message(message_t *message)
 
 prodaq_err_t prodaq_app_process_request(request_message_t *request)
 {
-    message_t message = { 0 };
+    message_t message = {0};
     message.id = request->id;
 
     switch (request->id)
@@ -121,27 +122,14 @@ prodaq_err_t prodaq_app_load_config(const char *filename, message_t *message, me
     struct stat file_stat;
     prodaq_err_t err;
 
-    if (stat(filename, &file_stat) != -1)
+    if (prodaq_fm_load(&message->data, size, filename) == PRODAQ_OK)
     {
-        FILE *fd = fopen(filename, "r");
-        if (fd != NULL)
-        {
-            memset(message, 0, sizeof(message_t));
-            fread(&message->data, size, 1, fd);
-            message->id = id;
-            prodaq_app_send_message(message);
-            err = PRODAQ_OK;
-        }
-        else
-        {
-            err = PRODAQ_ERR_READ_OPERATION_FAILED;
-        }
-        fclose(fd);
+        message->id = id;
+        prodaq_app_send_message(message);
+        return PRODAQ_OK;
     }
     else
     {
-        err = PRODAQ_ERR_NOT_FOUND;
+        return PRODAQ_ERR_NOT_FOUND;
     }
-
-    return err;
 }
