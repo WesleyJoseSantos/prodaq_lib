@@ -15,6 +15,21 @@
         "prodaq_http.h": "c",
         "prodaq_message_id.h": "c",
         "hardware_message.h": "c",
-        "prodaq_request.h": "c"
-    }
+        "prodaq_request.h": "c",
+        "hardware.h": "c",
+        "prodaq_hardware.h": "c",
+        "prodaq_config.h": "c",
+        "windows.h": "c",
+        "prodaq_app_config.h": "c",
+        "hardware_config.h": "c",
+        "protocol_config.h": "c",
+        "stdio.h": "c"
+    },
+    "editor.quickSuggestions": {
+        "other": true,
+        "cmakeLists": true
+    },
+    "editor.tabCompletion": "on",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.wordBasedSuggestions": false
 }
