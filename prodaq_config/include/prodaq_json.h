@@ -37,9 +37,12 @@
     if (json == NULL || ptr == NULL)   \
         return PRODAQ_ERR_INVALID_ARG;
 
-#define PRODAQ_FROM_JSON_BOOLEAN(x)                             \
-    cJSON *x = cJSON_GetObjectItem(json, #x);                   \
-    ptr->x = x->type == cJSON_True
+#define PRODAQ_FROM_JSON_BOOLEAN(x)           \
+    cJSON *x = cJSON_GetObjectItem(json, #x); \
+    if (x)                                    \
+        ptr->x = x->type == cJSON_True;       \
+    else                                      \
+        ptr->x = false
 
 #define PRODAQ_FROM_JSON_NUMBER(x)            \
     cJSON *x = cJSON_GetObjectItem(json, #x); \
@@ -77,15 +80,31 @@
 
 #define PRODAQ_TO_JSON_NUMBER(x) cJSON_AddNumberToObject(json, #x, ptr->x)
 
-#define PRODAQ_TO_JSON_NUMBER_ARRAY(x)                          \
-    cJSON *x = cJSON_CreateArray();                             \
-    for (size_t i = 0; i < sizeof(ptr->x); i++)                 \
-    {                                                           \
-        cJSON_AddItemToArray(x, cJSON_CreateNumber(ptr->x[i])); \
-    }                                                           \
-    cJSON_AddItemToObject(json, #x, x)
+#define asizeof(x) sizeof(x) / sizeof(x[0])
 
-#define PRODAQ_TO_JSON_CHAR_ARRAY(x) cJSON_AddStringToObject(json, #x, (char *)ptr->x)
+#define PRODAQ_TO_JSON_NUMBER_ARRAY(x)                                  \
+    {                                                                   \
+        size_t count = 0;                                               \
+        for (size_t i = 0; i < asizeof(ptr->x); i++)                    \
+        {                                                               \
+            if (ptr->x[i] != 0)                                         \
+                break;                                                  \
+            count++;                                                    \
+        }                                                               \
+        if (count != (asizeof(ptr->x)))                             \
+        {                                                               \
+            cJSON *x = cJSON_CreateArray();                             \
+            for (size_t i = 0; i < asizeof(ptr->x); i++)                \
+            {                                                           \
+                cJSON_AddItemToArray(x, cJSON_CreateNumber(ptr->x[i])); \
+            }                                                           \
+            cJSON_AddItemToObject(json, #x, x);                         \
+        }                                                               \
+    }
+
+#define PRODAQ_TO_JSON_CHAR_ARRAY(x) \
+    if (ptr->x[0] != '\0')           \
+    cJSON_AddStringToObject(json, #x, (char *)ptr->x)
 
 #define PRODAQ_TO_JSON_HEX_ARRAY(x)               \
     char x[(sizeof(ptr->x) * 2) + 1];             \

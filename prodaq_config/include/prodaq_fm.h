@@ -16,22 +16,32 @@
 #include <stdlib.h>
 
 /**
- * @brief Save file to prodaq fm
- * 
- * @param data Data to be saved
- * @param file_name Data size
- * @param file_name File name
- * @return prodaq_err_t 
+ * @brief Saves the specified data to a file with the specified filename.
+ *
+ * This function takes a pointer to a block of data, the size of the data in bytes, and the filename to use for the
+ * saved file as input. The function saves the data to a file with the specified filename. The function returns a
+ * PRODAQ error code indicating whether the operation was successful or not.
+ *
+ * @param data Pointer to the block of data to save to the file.
+ * @param size The size of the data block in bytes.
+ * @param filename The filename to use for the saved file.
+ *
+ * @return A PRODAQ error code indicating whether the operation was successful or not.
  */
 prodaq_err_t prodaq_fm_save(void *data, size_t size, const char *filename);
 
 /**
- * @brief Load file from prodaq fm
- * 
- * @param data Data to be loaded
- * @param size 
- * @param flie_name 
- * @return prodaq_err_t 
+ * @brief Loads data from a file with the specified filename into the specified data buffer.
+ *
+ * This function takes a pointer to a buffer to hold the loaded data, the size of the buffer in bytes, and the filename
+ * of the file to load the data from as input. The function loads the data from the specified file into the buffer.
+ * The function returns a PRODAQ error code indicating whether the operation was successful or not.
+ *
+ * @param data Pointer to the buffer to hold the loaded data.
+ * @param size The size of the buffer in bytes.
+ * @param filename The filename of the file to load the data from.
+ *
+ * @return A PRODAQ error code indicating whether the operation was successful or not.
  */
 prodaq_err_t prodaq_fm_load(void *data, size_t size, const char *filename);
 
