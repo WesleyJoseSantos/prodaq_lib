@@ -9,7 +9,7 @@
  * 
  */
 
-#include "uart_config.h"
+#include "hardware/uart_config.h"
 
 prodaq_err_t uart_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(uart_config_t))
 {

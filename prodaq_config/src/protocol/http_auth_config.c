@@ -9,7 +9,7 @@
  * 
  */
 
-#include "http_auth_config.h"
+#include "protocol/http_auth_config.h"
 
 prodaq_err_t http_auth_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(http_auth_config_t))
 {

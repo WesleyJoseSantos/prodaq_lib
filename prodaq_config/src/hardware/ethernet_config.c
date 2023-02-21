@@ -9,7 +9,7 @@
  * 
  */
 
-#include "ethernet_config.h"
+#include "hardware/ethernet_config.h"
 
 prodaq_err_t ethernet_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(ethernet_config_t))
 {

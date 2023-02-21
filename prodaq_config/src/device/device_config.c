@@ -9,7 +9,7 @@
  * 
  */
 
-#include "device_config.h"
+#include "device/device_config.h"
 
 prodaq_err_t device_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(device_config_t), device_t type)
 {

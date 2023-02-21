@@ -3,9 +3,6 @@ cmake_minimum_required(VERSION 3.10)
 project(prodaq_config C)
 
 include_directories(include)
-include_directories(include/hardware)
-include_directories(include/protocol)
-include_directories(include/device)
 
 include_directories(../cJSON)
 

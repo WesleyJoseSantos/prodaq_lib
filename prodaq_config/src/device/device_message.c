@@ -9,7 +9,7 @@
  * 
  */
 
-#include "device_message.h"
+#include "device/device_message.h"
 
 prodaq_err_t device_message_from_json(PRODAQ_FROM_JSON_PARAMETERS(device_message_t))
 {

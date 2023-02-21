@@ -9,7 +9,7 @@
  * 
  */
 
-#include "sensor_config.h"
+#include "device/sensor_config.h"
 
 prodaq_err_t sensor_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(sensor_config_t))
 {

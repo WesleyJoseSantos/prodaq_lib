@@ -9,7 +9,7 @@
  * 
  */
 
-#include "protocol_message.h"
+#include "protocol/protocol_message.h"
 
 prodaq_err_t protocol_message_from_json(PRODAQ_FROM_JSON_PARAMETERS(protocol_message_t))
 {

@@ -12,9 +12,9 @@
 #ifndef __PRODAQ_MESSAGE_DATA__H__
 #define __PRODAQ_MESSAGE_DATA__H__
 
-#include "hardware_message.h"
-#include "protocol_message.h"
-#include "device_message.h"
+#include "hardware/hardware_message.h"
+#include "protocol/protocol_message.h"
+#include "device/device_message.h"
 #include "prodaq_request.h"
 #include "prodaq_response.h"
 #include "prodaq_json.h"

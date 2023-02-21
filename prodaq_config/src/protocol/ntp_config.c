@@ -9,7 +9,7 @@
  * 
  */
 
-#include "ntp_config.h"
+#include "protocol/ntp_config.h"
 
 prodaq_err_t ntp_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(ntp_config_t))
 {

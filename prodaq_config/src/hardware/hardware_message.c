@@ -9,7 +9,7 @@
  *
  */
 
-#include "hardware_message.h"
+#include "hardware/hardware_message.h"
 
 prodaq_err_t hardware_message_from_json(PRODAQ_FROM_JSON_PARAMETERS(hardware_message_t))
 {

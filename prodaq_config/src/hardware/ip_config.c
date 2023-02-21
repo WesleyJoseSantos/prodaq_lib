@@ -9,7 +9,7 @@
  * 
  */
 
-#include "ip_config.h"
+#include "hardware/ip_config.h"
 
 prodaq_err_t ip_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(ip_config_t))
 {

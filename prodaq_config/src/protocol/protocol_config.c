@@ -9,7 +9,7 @@
  *
  */
 
-#include "protocol_config.h"
+#include "protocol/protocol_config.h"
 
 prodaq_err_t protocol_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(protocol_config_t), protocol_t type)
 {

@@ -9,7 +9,7 @@
  * 
  */
 
-#include "wifi_config.h"
+#include "hardware/wifi_config.h"
 
 prodaq_err_t wifi_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(wifi_config_t))
 {

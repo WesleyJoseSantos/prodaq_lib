@@ -9,7 +9,7 @@
  * 
  */
 
-#include "mqtt_config.h"
+#include "protocol/mqtt_config.h"
 
 prodaq_err_t mqtt_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(mqtt_config_t))
 {

@@ -9,7 +9,7 @@
  * 
  */
 
-#include "http_config.h"
+#include "protocol/http_config.h"
 
 prodaq_err_t http_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(http_config_t))
 {
