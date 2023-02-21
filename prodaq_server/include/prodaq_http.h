@@ -127,4 +127,20 @@ prodaq_err_t prodaq_http_process_request(http_server_t *server, char *request, v
  */
 int prodaq_http_build_response(const char *status_code, const char *content_type, char *body, char *buf, size_t len);
 
+/**
+ * @brief Sends an HTTP error response to the client.
+ *
+ * This function takes a pointer to an HTTP server, a pointer to the client that sent the request, an error code, and
+ * an HTTP status code as input. The function sends an HTTP error response to the client with the specified error and
+ * status codes. The function returns a PRODAQ error code indicating whether the operation was successful or not.
+ *
+ * @param server Pointer to the HTTP server.
+ * @param client Pointer to the client that sent the request.
+ * @param err The PRODAQ error code associated with the error.
+ * @param status_code The HTTP status code to send in the response.
+ *
+ * @return A PRODAQ error code indicating whether the operation was successful or not.
+ */
+prodaq_err_t prodaq_http_send_error(http_server_t *server, void *client, prodaq_err_t err, const char *status_code);
+
 #endif //!__PRODAQ_HTTP__H__
