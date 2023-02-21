@@ -43,6 +43,7 @@
 
 #define MOCK_UART_CONFIG          \
     {                             \
+        .num = 1,                \
         .baud_rate = 115200,      \
         .data_bits = 8,           \
         .parity = 0,              \

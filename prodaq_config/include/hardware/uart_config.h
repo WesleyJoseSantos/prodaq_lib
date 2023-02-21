@@ -77,6 +77,7 @@ typedef enum
  */
 typedef struct
 {
+    uint8_t num;                     /*!< UART port number*/
     int baud_rate;                   /*!< UART baud rate*/
     uart_word_length_t data_bits;    /*!< UART byte size*/
     uart_parity_t parity;            /*!< UART parity mode*/
@@ -87,15 +88,15 @@ typedef struct
 
 /**
  * @brief Serialize an uart_config_t object to cJSON object
- * 
+ *
  * @return prodaq_err_t err code
  */
 prodaq_err_t uart_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(uart_config_t));
 
 /**
  * @brief Deserialize an uart_config_t object using an cJSON object
- * 
- * @param type 
+ *
+ * @param type
  * @return prodaq_err_t err code
  */
 prodaq_err_t uart_config_to_json(PRODAQ_TO_JSON_PARAMETERS(uart_config_t));
