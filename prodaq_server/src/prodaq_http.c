@@ -130,7 +130,7 @@ prodaq_err_t prodaq_http_process_request(http_server_t *server, char *request, v
         if (req_data.method == HTTP_METHOD_POST && strcmp(req_data.url, server->endpoint) == 0)
         {
             cJSON *json = cJSON_Parse(req_data.body);
-            message_t message;
+            message_t message = { 0 };
             prodaq_err_t err = message_from_json(json, &message);
             if (err == PRODAQ_OK)
             {
