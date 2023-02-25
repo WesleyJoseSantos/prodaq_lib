@@ -9,10 +9,13 @@
  *
  */
 
+#include "prodaq_config.h"
+
+#ifdef  __WINDOWS__
+
 #include <stdio.h>
 #include <string.h>
 
-#include "prodaq_config.h"
 #include "prodaq_server.h"
 #include "prodaq_http.h"
 #include "winsock2.h"
@@ -96,14 +99,13 @@ prodaq_err_t prodaq_server_task(void)
             req_size = recv(client, request, sizeof(request), 0);
         }
         PRODAQ_ERROR_CHECK(prodaq_http_send_error(&this.server, &client, PRODAQ_ERR_BUFFER_OVERFLOW, HTTP_STATUS_INTERNAL_SERVER_ERROR));
-        closesocket(client);
     }
     else
     {
         PRODAQ_ERROR_CHECK(prodaq_http_process_request(&this.server, request, &client));
-        closesocket(client);
     }
 
+    closesocket(client);    
     return PRODAQ_OK;
 }
 
@@ -133,8 +135,6 @@ static prodaq_err_t prodaq_server_send_response(void *client, const char *status
     int result = send(*client_socket, response, len, 0);
     if (result == SOCKET_ERROR)
     {
-        closesocket(*client_socket);
-        prodaq_server_stop();
         return PRODAQ_ERR_HTTP_SEND_RESPONSE_FAIL;
     }
     else
@@ -142,3 +142,5 @@ static prodaq_err_t prodaq_server_send_response(void *client, const char *status
         return PRODAQ_OK;
     }
 }
+
+#endif  //PRODAQ_TARGET_WIN
