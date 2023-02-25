@@ -33,8 +33,11 @@
 #define FS SD
 #endif
 
+static bool save_file_disabled = false;
+
 prodaq_err_t prodaq_fm_save(void *data, size_t size, const char *filename)
 {
+  if (save_file_disabled) return PRODAQ_ERR_OPERATION_DISABLED;
   File file = FS.open(filename, FILE_WRITE);
   if (!file)
   {
@@ -48,7 +51,6 @@ prodaq_err_t prodaq_fm_save(void *data, size_t size, const char *filename)
     return PRODAQ_ERR_WRITE_OPERATION_FAILED;
   }
   file.close();
-  printf("prodaq_fm_save OK\n");
   return PRODAQ_OK;
 }
 
@@ -67,8 +69,12 @@ prodaq_err_t prodaq_fm_load(void *data, size_t size, const char *filename)
     return PRODAQ_ERR_READ_OPERATION_FAILED;
   }
   file.close();
-  printf("prodaq_fm_load OK\n");
   return PRODAQ_OK;
+}
+
+void prodaq_fm_disable_save(bool disable)
+{
+    save_file_disabled = disable;
 }
 
 #endif //! PRODAQ_TARGET_INO

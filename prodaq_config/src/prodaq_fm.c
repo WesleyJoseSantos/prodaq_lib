@@ -17,8 +17,11 @@
 #include <stdio.h>
 #include <string.h>
 
+static bool save_file_disabled = false;
+
 prodaq_err_t prodaq_fm_save(void *data, size_t size, const char *filename)
 {
+    if(save_file_disabled) return PRODAQ_ERR_OPERATION_DISABLED;
     FILE *file = fopen(filename, "wb");
     if (file != NULL) {
         fwrite(data, size, 1, file);
@@ -51,6 +54,11 @@ prodaq_err_t prodaq_fm_load(void *data, size_t size, const char *filename)
     } else {
         return PRODAQ_ERR_NOT_FOUND;
     }
+}
+
+void prodaq_fm_disable_save(bool disable)
+{
+    save_file_disabled = disable;
 }
 
 #endif  //!PRODAQ_TARGET_INO
