@@ -9,7 +9,7 @@
  * 
  */
 
-#include "mqtt_config.h"
+#include "protocol/mqtt_config.h"
 #include "protocol_mocks.h"
 #include "json.h"
 #include "unity.h"

@@ -9,18 +9,10 @@
  *
  */
 
-#include "device_message.h"
+#include "device/device_message.h"
 #include "device_mocks.h"
 #include "unity.h"
-
-#include "device_message.h"
-#include "device_mocks.h"
 #include "json.h"
-#include "unity.h"
-
-#include "device_mocks.h"
-#include "json.h"
-#include "unity.h"
 
 void device_message_sensor_type_from_json_test(void)
 {

@@ -12,6 +12,11 @@
 #ifndef __SENSOR_CONFIG__H__
 #define __SENSOR_CONFIG__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include <inttypes.h>
 #include "prodaq_json.h"
 
@@ -68,5 +73,9 @@ prodaq_err_t sensor_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(sensor_config_t
  * @return prodaq_err_t err code
  */
 prodaq_err_t sensor_config_to_json(PRODAQ_TO_JSON_PARAMETERS(sensor_config_t));
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  //!__SENSOR_CONFIG__H__

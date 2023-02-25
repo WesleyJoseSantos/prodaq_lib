@@ -12,6 +12,11 @@
 #ifndef __PROTOCOL_CONFIG__H__
 #define __PROTOCOL_CONFIG__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include "ntp_config.h"
 #include "http_config.h"
 #include "mqtt_config.h"
@@ -55,5 +60,9 @@ prodaq_err_t protocol_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(protocol_conf
  * @return prodaq_err_t err code
  */
 prodaq_err_t protocol_config_to_json(PRODAQ_TO_JSON_PARAMETERS(protocol_config_t), protocol_t type);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //!__PROTOCOL_CONFIG__H__

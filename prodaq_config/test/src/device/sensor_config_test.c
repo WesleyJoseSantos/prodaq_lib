@@ -9,8 +9,8 @@
  * 
  */
 
+#include "device/sensor_config.h"
 #include "device_mocks.h"
-#include "sensor_config.h"
 #include "json.h"
 #include "unity.h"
 

@@ -12,6 +12,11 @@
 #ifndef __DEVICE_MESSAGE__H__
 #define __DEVICE_MESSAGE__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include <stdbool.h>
 #include <inttypes.h>
 #include "device_config.h"
@@ -42,5 +47,9 @@ prodaq_err_t device_message_from_json(PRODAQ_FROM_JSON_PARAMETERS(device_message
  * @return prodaq_err_t err code
  */
 prodaq_err_t device_message_to_json(PRODAQ_TO_JSON_PARAMETERS(device_message_t));
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //!__DEVICE_MESSAGE__H__

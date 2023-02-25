@@ -12,6 +12,11 @@
 #ifndef __HARDWARE_WIFI__H__
 #define __HARDWARE_WIFI__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include "ip_config.h"
 #include "prodaq_json.h"
 #include <stdbool.h>
@@ -43,5 +48,9 @@ prodaq_err_t wifi_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(wifi_config_t));
  * @return prodaq_err_t err code
  */
 prodaq_err_t wifi_config_to_json(PRODAQ_TO_JSON_PARAMETERS(wifi_config_t));
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //!__HARDWARE_WIFI__H__

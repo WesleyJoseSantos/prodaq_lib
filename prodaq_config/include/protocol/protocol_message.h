@@ -12,6 +12,11 @@
 #ifndef __PROTOCOL_MESSAGE__H__
 #define __PROTOCOL_MESSAGE__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include <stdbool.h>
 #include "protocol_config.h"
 #include "prodaq_json.h"
@@ -41,5 +46,9 @@ prodaq_err_t protocol_message_from_json(PRODAQ_FROM_JSON_PARAMETERS(protocol_mes
  * @return prodaq_err_t err code
  */
 prodaq_err_t protocol_message_to_json(PRODAQ_TO_JSON_PARAMETERS(protocol_message_t));
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //!__PROTOCOL_MESSAGE__H__
