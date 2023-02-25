@@ -12,6 +12,11 @@
 #ifndef __PRODAQ_HTTP__H__
 #define __PRODAQ_HTTP__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include "prodaq_err.h"
 #include "prodaq_config.h"
 #include "prodaq_message.h"
@@ -142,5 +147,9 @@ int prodaq_http_build_response(const char *status_code, const char *content_type
  * @return A PRODAQ error code indicating whether the operation was successful or not.
  */
 prodaq_err_t prodaq_http_send_error(http_server_t *server, void *client, prodaq_err_t err, const char *status_code);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //!__PRODAQ_HTTP__H__
