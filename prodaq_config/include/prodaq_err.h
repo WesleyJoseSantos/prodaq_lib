@@ -49,9 +49,10 @@ typedef enum
     PRODAQ_ERR_UART_GET_STATE,
     PRODAQ_ERR_UART_SET_STATE,
     PRODAQ_ERR_SET_TIMEOUT,
+    PRODAQ_ERR_COUNT,
 } prodaq_err_t;
 
-static const char *const prodaq_err_to_msg[] = {
+static const char *const prodaq_error_messages[] = {
     "No error",
     "Function not implemented",
     "Invalid argument",
@@ -82,25 +83,27 @@ static const char *const prodaq_err_to_msg[] = {
     "Failed to set timeout",
 };
 
-#define PRODAQ_ERROR_CHECK(x)                                                                         \
-    do                                                                                                \
-    {                                                                                                 \
-        prodaq_err_t err = x;                                                                         \
-        if (err != PRODAQ_OK)                                                                         \
-        {                                                                                             \
-            printf(__FILE__ ":%d: Error %d \"%s\" at " #x "\n", __LINE__, err, prodaq_err_to_msg[err]); \
-        }                                                                                             \
+#define PRODAQ_ERROR_TO_MESSAGE(x) (x >= 0 && x < PRODAQ_ERR_COUNT) ? prodaq_error_messages[x] : "Unknown Error"
+
+#define PRODAQ_ERROR_CHECK(x)                                                                                             \
+    do                                                                                                                    \
+    {                                                                                                                     \
+        prodaq_err_t prodaq_err = x;                                                                                      \
+        if (prodaq_err != PRODAQ_OK)                                                                                      \
+        {                                                                                                                 \
+            printf(__FILE__ ":%d: Error %d \"%s\" at " #x "\n", __LINE__, prodaq_err, prodaq_error_messages[prodaq_err]); \
+        }                                                                                                                 \
     } while (0)
 
-#define PRODAQ_ERROR_RETURN(x)                                                                        \
-    do                                                                                                \
-    {                                                                                                 \
-        prodaq_err_t err = x;                                                                         \
-        if (err != PRODAQ_OK)                                                                         \
-        {                                                                                             \
-            printf(__FILE__ ":%d: Error %d \"%s\" at " #x "\n", __LINE__, err, prodaq_err_to_msg[err]); \
-            return err;                                                                               \
-        }                                                                                             \
+#define PRODAQ_ERROR_RETURN(x)                                                                                            \
+    do                                                                                                                    \
+    {                                                                                                                     \
+        prodaq_err_t prodaq_err = x;                                                                                      \
+        if (prodaq_err != PRODAQ_OK)                                                                                      \
+        {                                                                                                                 \
+            printf(__FILE__ ":%d: Error %d \"%s\" at " #x "\n", __LINE__, prodaq_err, prodaq_error_messages[prodaq_err]); \
+            return prodaq_err;                                                                                            \
+        }                                                                                                                 \
     } while (0)
 
 #endif //!__PRODAQ_ERR__H__
