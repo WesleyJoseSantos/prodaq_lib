@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "prodaq_http.h"
+#include "prodaq_err.h"
 #include "cJSON.h"
 
 http_method_t prodaq_http_request_get_method(char *request);
@@ -118,49 +119,50 @@ prodaq_err_t prodaq_http_parse_request(char *request_str, http_request_t *reques
 
 prodaq_err_t prodaq_http_process_request(http_server_t *server, char *request, void *client)
 {
-    http_request_t req_data;
-    prodaq_err_t err = prodaq_http_parse_request(request, &req_data);
+    http_request_t *req_data = calloc(1, sizeof(http_request_t));
+    prodaq_err_t err = prodaq_http_parse_request(request, req_data);
     if(err != PRODAQ_OK)
     {
-        PRODAQ_ERROR_RETURN(prodaq_http_send_error(server, client, err, HTTP_STATUS_INTERNAL_SERVER_ERROR));
+        PRODAQ_ERROR_CHECK(prodaq_http_send_error(server, client, err, HTTP_STATUS_INTERNAL_SERVER_ERROR));
     }
 
     if (err == PRODAQ_OK && server->on_request != NULL && server->endpoint != NULL)
     {
-        if (req_data.method == HTTP_METHOD_POST && strcmp(req_data.url, server->endpoint) == 0)
+        if (req_data->method == HTTP_METHOD_POST && strcmp(req_data->url, server->endpoint) == 0)
         {
-            cJSON *json = cJSON_Parse(req_data.body);
+            cJSON *json = cJSON_Parse(req_data->body);
             message_t message = { 0 };
-            prodaq_err_t err = message_from_json(json, &message);
+            err = message_from_json(json, &message);
             if (err == PRODAQ_OK)
             {
                 err = server->on_request(&message);
                 const char *status_code = err == PRODAQ_OK ? HTTP_STATUS_OK : HTTP_STATUS_INTERNAL_SERVER_ERROR;
                 if (server->response.id == MSG_ID_INVALID)
                 {
-                    prodaq_http_send_error(server, client, err, status_code);
+                    PRODAQ_ERROR_CHECK(prodaq_http_send_error(server, client, err, status_code));
                 }
                 else
                 {
-                    prodaq_http_send_message(server, client, &server->response, status_code);
+                    PRODAQ_ERROR_CHECK(prodaq_http_send_message(server, client, &server->response, status_code));
                     server->response.id = MSG_ID_INVALID;
                 }
             }
             else
             {
-                prodaq_http_send_error(server, client, err, HTTP_STATUS_UNSUPPORTED_MEDIA_TYPE);
+                PRODAQ_ERROR_CHECK(prodaq_http_send_error(server, client, err, HTTP_STATUS_UNSUPPORTED_MEDIA_TYPE));
             }
         }
         else
         {
-            prodaq_http_send_error(server, client, PRODAQ_ERR_HTTP_NOT_FOUND, HTTP_STATUS_NOT_FOUND);
+            PRODAQ_ERROR_CHECK(prodaq_http_send_error(server, client, PRODAQ_ERR_HTTP_NOT_FOUND, HTTP_STATUS_NOT_FOUND));
         }
     }
     else
     {
-        prodaq_http_send_error(server, client, PRODAQ_ERR_HTTP_NULL_REQUEST_HANDLER, HTTP_STATUS_INTERNAL_SERVER_ERROR);
+        PRODAQ_ERROR_CHECK(prodaq_http_send_error(server, client, PRODAQ_ERR_HTTP_NULL_REQUEST_HANDLER, HTTP_STATUS_INTERNAL_SERVER_ERROR));
     }
 
+    free(req_data);
     return err;
 }
 
@@ -169,7 +171,7 @@ prodaq_err_t prodaq_http_send_error(http_server_t *server, void *client, prodaq_
     message_t message = {0};
     message.id = MSG_ID_RESPONSE;
     message.data.response.err = err;
-    sprintf(message.data.response.message, prodaq_err_to_msg[message.data.response.err]);
+    sprintf(message.data.response.message, PRODAQ_ERROR_TO_MESSAGE(message.data.response.err));
     return prodaq_http_send_message(server, client, &message, status_code);
 }
 
