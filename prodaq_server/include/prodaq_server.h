@@ -12,6 +12,11 @@
 #ifndef __PRODAQ_SERVER__H__
 #define __PRODAQ_SERVER__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include "prodaq_message.h"
 #include "prodaq_err.h"
 
@@ -49,5 +54,9 @@ void prodaq_server_on_request(prodaq_err_t (*callback)(message_t *));
  * @param body The body of the response.
  */
 void prodaq_server_set_response(message_t *message);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  //!__PRODAQ_SERVER__H__
