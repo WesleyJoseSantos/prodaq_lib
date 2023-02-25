@@ -12,6 +12,11 @@
 #ifndef __PROTOCOL_NTP__H__
 #define __PROTOCOL_NTP__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include <inttypes.h>
 #include "prodaq_json.h"
 
@@ -43,5 +48,9 @@ prodaq_err_t ntp_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(ntp_config_t));
  * @return prodaq_err_t err code
  */
 prodaq_err_t ntp_config_to_json(PRODAQ_TO_JSON_PARAMETERS(ntp_config_t));
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //!__PROTOCOL_NTP__H__

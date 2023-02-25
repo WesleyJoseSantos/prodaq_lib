@@ -12,6 +12,11 @@
 #ifndef __PROTOCOL_HTTP__H__
 #define __PROTOCOL_HTTP__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include <inttypes.h>
 #include "http_auth_config.h"
 
@@ -48,5 +53,9 @@ prodaq_err_t http_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(http_config_t));
  * @return prodaq_err_t err code
  */
 prodaq_err_t http_config_to_json(PRODAQ_TO_JSON_PARAMETERS(http_config_t));
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //!__PROTOCOL_HTTP__H__
