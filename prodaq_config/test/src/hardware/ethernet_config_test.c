@@ -9,7 +9,7 @@
  * 
  */
 
-#include "ethernet_config.h"
+#include "hardware/ethernet_config.h"
 #include "hardware_mocks.h"
 #include "json.h"
 #include "unity.h"

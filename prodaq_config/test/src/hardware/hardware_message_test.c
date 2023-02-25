@@ -9,15 +9,7 @@
  *
  */
 
-#include "hardware_message.h"
-#include "hardware_mocks.h"
-#include "unity.h"
-
-#include "hardware_message.h"
-#include "hardware_mocks.h"
-#include "json.h"
-#include "unity.h"
-
+#include "hardware/hardware_message.h"
 #include "hardware_mocks.h"
 #include "json.h"
 #include "unity.h"

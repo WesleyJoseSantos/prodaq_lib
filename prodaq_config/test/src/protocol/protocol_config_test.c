@@ -9,7 +9,7 @@
  * 
  */
 
-#include "protocol_config.h"
+#include "protocol/protocol_config.h"
 #include "protocol_mocks.h"
 #include "json.h"
 #include "unity.h"

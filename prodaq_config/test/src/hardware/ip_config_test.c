@@ -9,7 +9,7 @@
  *
  */
 
-#include "ip_config.h"
+#include "hardware/ip_config.h"
 #include "hardware_mocks.h"
 #include "json.h"
 #include "unity.h"

@@ -9,18 +9,10 @@
  * 
  */
 
-#include "protocol_message.h"
+#include "protocol/protocol_message.h"
 #include "protocol_mocks.h"
 #include "unity.h"
-
-#include "protocol_message.h"
-#include "protocol_mocks.h"
 #include "json.h"
-#include "unity.h"
-
-#include "protocol_mocks.h"
-#include "json.h"
-#include "unity.h"
 
 void protocol_message_ntp_type_from_json_test(void)
 {

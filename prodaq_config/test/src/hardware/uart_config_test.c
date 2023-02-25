@@ -9,7 +9,7 @@
  * 
  */
 
-#include "uart_config.h"
+#include "hardware/uart_config.h"
 #include "hardware_mocks.h"
 #include "json.h"
 #include "unity.h"

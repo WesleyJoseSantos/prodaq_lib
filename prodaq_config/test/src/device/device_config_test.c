@@ -9,7 +9,7 @@
  *
  */
 
-#include "device_config.h"
+#include "device/device_config.h"
 #include "device_mocks.h"
 #include "json.h"
 #include "unity.h"

@@ -9,7 +9,7 @@
  * 
  */
 
-#include "http_auth_config.h"
+#include "protocol/http_auth_config.h"
 #include "protocol_mocks.h"
 #include "json.h"
 #include "unity.h"

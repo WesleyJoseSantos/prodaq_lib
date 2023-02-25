@@ -9,7 +9,7 @@
  * 
  */
 
-#include "ntp_config.h"
+#include "protocol/ntp_config.h"
 #include "protocol_mocks.h"
 #include "json.h"
 #include "unity.h"

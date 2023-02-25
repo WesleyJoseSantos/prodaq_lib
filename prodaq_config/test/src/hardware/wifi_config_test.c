@@ -9,7 +9,7 @@
  *
  */
 
-#include "wifi_config.h"
+#include "hardware/wifi_config.h"
 #include "hardware_mocks.h"
 #include "json.h"
 #include "unity.h"
