@@ -83,7 +83,6 @@ static prodaq_err_t prodaq_server_handle_client(Client &client)
     else
     {
         client.readBytes(req_buf, client.available());
-        Serial.printf("request: %s\n", req_buf);
         PRODAQ_ERROR_CHECK(prodaq_http_process_request(&http, req_buf, &client));
     }
 
