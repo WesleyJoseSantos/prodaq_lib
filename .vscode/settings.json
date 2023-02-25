@@ -28,7 +28,8 @@
         "unity.h": "c",
         "protocol_mocks.h": "c",
         "device_config.h": "c",
-        "device_mocks.h": "c"
+        "device_mocks.h": "c",
+        "stdbool.h": "c"
     },
     "editor.quickSuggestions": {
         "other": true,
