@@ -27,6 +27,9 @@ prodaq_err_t prodaq_app_start(void)
 {
     message_t message = {0};
 
+    // Disable save data
+    prodaq_fm_disable_save(true);
+
     // Load Hardware Settings
     PRODAQ_ERROR_CHECK(prodaq_app_load_config(PRODAQ_FILENAME_WIFI, &message, MSG_ID_HARDWARE_CONFIG, sizeof(message.data.hardware)));
     PRODAQ_ERROR_CHECK(prodaq_app_load_config(PRODAQ_FILENAME_ETHERNET, &message, MSG_ID_HARDWARE_CONFIG, sizeof(message.data.hardware)));
@@ -37,6 +40,10 @@ prodaq_err_t prodaq_app_start(void)
     PRODAQ_ERROR_CHECK(prodaq_app_load_config(PRODAQ_FILENAME_HTTP, &message, MSG_ID_PROTOCOL_CONFIG, sizeof(message.data.protocol)));
     PRODAQ_ERROR_CHECK(prodaq_app_load_config(PRODAQ_FILENAME_MQTT, &message, MSG_ID_PROTOCOL_CONFIG, sizeof(message.data.protocol)));
 
+    // Enable save data
+    prodaq_fm_disable_save(false);
+
+    // Assig server request callback
     prodaq_server_on_request(prodaq_app_send_message);
     PRODAQ_ERROR_RETURN(prodaq_server_start(PRODAQ_SERVER_PORT, PRODAQ_SERVER_URL));
 
@@ -46,6 +53,7 @@ prodaq_err_t prodaq_app_start(void)
 prodaq_err_t prodaq_app_task(void)
 {
     PRODAQ_ERROR_RETURN(prodaq_server_task());
+    PRODAQ_ERROR_RETURN(prodaq_protocol_task());
     return PRODAQ_OK;
 }
 
@@ -108,6 +116,7 @@ prodaq_err_t prodaq_app_process_request(request_message_t *request)
         break;
     }
 
+    prodaq_protocol_mqtt_set_response(&message);
     prodaq_server_set_response(&message);
     return PRODAQ_OK;
 }
