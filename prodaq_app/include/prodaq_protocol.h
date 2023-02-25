@@ -12,9 +12,14 @@
 #ifndef __PRODAQ_PROTOCOL__H__
 #define __PRODAQ_PROTOCOL__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include "prodaq_err.h"
 #include "prodaq_err.h"
-#include "protocol_message.h"
+#include "protocol/protocol_message.h"
 
 /**
  * @brief Sets the configuration of the protocol based on the provided protocol message.
@@ -40,5 +45,9 @@ prodaq_err_t prodaq_protocol_set_config(protocol_message_t *message);
  * @return A PRODAQ error code indicating whether the operation was successful or not.
  */
 prodaq_err_t prodaq_protocol_get_config(protocol_message_t *message);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  //!__PRODAQ_PROTOCOL__H__

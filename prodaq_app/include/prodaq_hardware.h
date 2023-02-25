@@ -12,9 +12,14 @@
 #ifndef __PRODAQ_HARDWARE__H__
 #define __PRODAQ_HARDWARE__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include "prodaq_err.h"
 #include "prodaq_err.h"
-#include "hardware_message.h"
+#include "hardware/hardware_message.h"
 
 /**
  * @brief Sets the hardware configuration based on the provided hardware message.
@@ -40,5 +45,9 @@ prodaq_err_t prodaq_hardware_set_config(hardware_message_t *message);
  * @return A PRODAQ error code indicating whether the operation was successful or not.
  */
 prodaq_err_t prodaq_hardware_get_config(hardware_message_t *message);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  //!__PRODAQ_HARDWARE__H__

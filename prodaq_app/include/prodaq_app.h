@@ -12,6 +12,11 @@
 #ifndef __PRODAQ_APP__H__
 #define __PRODAQ_APP__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include "prodaq_err.h"
 #include "prodaq_message.h"
 
@@ -45,5 +50,9 @@ prodaq_err_t prodaq_app_send_message(message_t *message);
  * @return ProDAQ error code indicating the success or failure of the function.
  */
 prodaq_err_t prodaq_app_wait_message_processing(message_id_t message_id, uint32_t timeout);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  //!__PRODAQ_APP__H__
