@@ -119,9 +119,6 @@ prodaq_err_t prodaq_app_wait_message_processing(message_id_t message_id, uint32_
 
 prodaq_err_t prodaq_app_load_config(const char *filename, message_t *message, message_id_t id, size_t size)
 {
-    struct stat file_stat;
-    prodaq_err_t err;
-
     if (prodaq_fm_load(&message->data, size, filename) == PRODAQ_OK)
     {
         message->id = id;

@@ -11,10 +11,9 @@
 
 #include "prodaq_config.h"
 
-#ifdef PRODAQ_TARGET_WIN
+#if defined(__LINUX__) || defined(__WINDOWS__) || defined(PRODAQ_SERVER_FORCE_FM)
 
 #include "prodaq_protocol.h"
-#include "windows.h"
 #include "prodaq_fm.h"
 #include <stdio.h>
 
