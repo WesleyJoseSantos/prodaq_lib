@@ -9,6 +9,10 @@
  * 
  */
 
+#include "prodaq_config.h"
+
+#if defined(__linux__) || defined(__WINDOWS__)
+
 #include "prodaq_fm.h"
 #include <stdio.h>
 #include <string.h>
@@ -48,3 +52,5 @@ prodaq_err_t prodaq_fm_load(void *data, size_t size, const char *filename)
         return PRODAQ_ERR_NOT_FOUND;
     }
 }
+
+#endif  //!PRODAQ_TARGET_INO
