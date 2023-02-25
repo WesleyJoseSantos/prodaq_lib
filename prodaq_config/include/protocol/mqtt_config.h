@@ -32,6 +32,8 @@ typedef struct protocol_mqtt_config
     char password[64]; // MQTT password
     uint8_t transport; // MQTT transport
     uint8_t qos;       // MQTT lowest qos
+    char rx_topic[48]; // MQTT topic used to receive data
+    char tx_topic[48]; // MQTT topic used to send data
 } mqtt_config_t;
 
 /**

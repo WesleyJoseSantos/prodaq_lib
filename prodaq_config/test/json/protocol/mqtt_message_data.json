@@ -7,6 +7,8 @@
     "username": "user123",
     "password": "password123",
     "transport": 1,
-    "qos": 0
+    "qos": 0,
+    "rx_topic": "rx_topic",
+    "tx_topic": "tx_topic"
   }
 }

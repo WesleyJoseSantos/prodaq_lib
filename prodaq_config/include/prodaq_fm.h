@@ -19,6 +19,7 @@ extern "C"
 
 #include "prodaq_err.h"
 #include <stdlib.h>
+#include <stdbool.h>
 
 /**
  * @brief Saves the specified data to a file with the specified filename.
@@ -49,6 +50,18 @@ prodaq_err_t prodaq_fm_save(void *data, size_t size, const char *filename);
  * @return A PRODAQ error code indicating whether the operation was successful or not.
  */
 prodaq_err_t prodaq_fm_load(void *data, size_t size, const char *filename);
+
+/**
+ * @brief Disables or enables saving data to file.
+ *
+ * This function takes a boolean value as input to enable or disable saving data to file. If the input is true, data saving
+ * is disabled, and if the input is false, data saving is enabled. 
+ *
+ * @param disable A boolean value to enable or disable data saving to file.
+ *
+ * @return None.
+ */
+void prodaq_fm_disable_save(bool disable);
 
 #ifdef __cplusplus
 }

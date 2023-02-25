@@ -59,7 +59,9 @@
         .username = "user123",      \
         .password = "password123",  \
         .transport = 1,             \
-        .qos = 0                    \
+        .qos = 0,                   \
+        .rx_topic = "rx_topic",     \
+        .tx_topic = "tx_topic"      \
     }
 
 #define MOCK_NTP_CONFIG                \
@@ -84,28 +86,28 @@
         }                                      \
     }
 
-#define MOCK_MQTT_MESSAGE                              \
-    {                                                  \
-        .id = MSG_ID_PROTOCOL_CONFIG,                  \
-        .data = {                                      \
-            .protocol = {                              \
-                .type = PROTOCOL_MQTT,                 \
-                .enabled = true,                       \
-                .config = {                            \
-                    .mqtt = MOCK_MQTT_CONFIG}} \
-        }                                              \
-    }
-
-#define MOCK_NTP_MESSAGE                       \
+#define MOCK_MQTT_MESSAGE                      \
     {                                          \
         .id = MSG_ID_PROTOCOL_CONFIG,          \
         .data = {                              \
             .protocol = {                      \
-                .type = PROTOCOL_NTP,          \
+                .type = PROTOCOL_MQTT,         \
                 .enabled = true,               \
                 .config = {                    \
-                    .ntp = MOCK_NTP_CONFIG}} \
+                    .mqtt = MOCK_MQTT_CONFIG}} \
         }                                      \
+    }
+
+#define MOCK_NTP_MESSAGE                     \
+    {                                        \
+        .id = MSG_ID_PROTOCOL_CONFIG,        \
+        .data = {                            \
+            .protocol = {                    \
+                .type = PROTOCOL_NTP,        \
+                .enabled = true,             \
+                .config = {                  \
+                    .ntp = MOCK_NTP_CONFIG}} \
+        }                                    \
     }
 
 #endif //!__PROTOCOL_MOCKS__H__
