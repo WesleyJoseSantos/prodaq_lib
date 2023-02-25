@@ -12,6 +12,11 @@
 #ifndef __HARDWARE_CONFIG__H__
 #define __HARDWARE_CONFIG__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include "wifi_config.h"
 #include "ethernet_config.h"
 #include "uart_config.h"
@@ -53,5 +58,9 @@ prodaq_err_t hardware_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(hardware_conf
  * @return prodaq_err_t err code
  */
 prodaq_err_t hardware_config_to_json(PRODAQ_TO_JSON_PARAMETERS(hardware_config_t), hardware_interface_t type);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //!__HARDWARE_CONFIG__H__

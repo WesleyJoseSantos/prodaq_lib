@@ -12,6 +12,11 @@
 #ifndef __PRODAQ_MESSAGE_DATA__H__
 #define __PRODAQ_MESSAGE_DATA__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include "hardware/hardware_message.h"
 #include "protocol/protocol_message.h"
 #include "device/device_message.h"
@@ -60,5 +65,9 @@ prodaq_err_t message_data_from_json(PRODAQ_FROM_JSON_PARAMETERS(message_data_t),
  * @return prodaq_err_t err code
  */
 prodaq_err_t message_data_to_json(PRODAQ_TO_JSON_PARAMETERS(message_data_t), message_id_t id);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //!__PRODAQ_MESSAGE_DATA__H__

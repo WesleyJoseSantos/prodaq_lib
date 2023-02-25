@@ -12,6 +12,11 @@
 #ifndef __HARDWARE_ETHERNET__H__
 #define __HARDWARE_ETHERNET__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include "ip_config.h"
 #include "prodaq_json.h"
 
@@ -38,5 +43,9 @@ prodaq_err_t ethernet_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(ethernet_conf
  * @return prodaq_err_t err code
  */
 prodaq_err_t ethernet_config_to_json(PRODAQ_TO_JSON_PARAMETERS(ethernet_config_t));
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //!__HARDWARE_ETHERNET__H__

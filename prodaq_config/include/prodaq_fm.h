@@ -12,6 +12,11 @@
 #ifndef __PRODAQ_FM__H__
 #define __PRODAQ_FM__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include "prodaq_err.h"
 #include <stdlib.h>
 
@@ -44,5 +49,9 @@ prodaq_err_t prodaq_fm_save(void *data, size_t size, const char *filename);
  * @return A PRODAQ error code indicating whether the operation was successful or not.
  */
 prodaq_err_t prodaq_fm_load(void *data, size_t size, const char *filename);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  //!__PRODAQ_FM__H__
