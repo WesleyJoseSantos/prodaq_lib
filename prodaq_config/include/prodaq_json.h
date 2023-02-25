@@ -103,7 +103,7 @@
     }
 
 #define PRODAQ_TO_JSON_CHAR_ARRAY(x) \
-    if (ptr->x[0] != '\0')           \
+    if (ptr->x != '\0')           \
     cJSON_AddStringToObject(json, #x, (char *)ptr->x)
 
 #define PRODAQ_TO_JSON_HEX_ARRAY(x)               \
