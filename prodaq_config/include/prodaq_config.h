@@ -39,7 +39,6 @@
 #define PRODAQ_FILENAME_HTTP "/http.bin"
 #define PRODAQ_FILENAME_MQTT "/mqtt.bin"
 
-#define PRODAQ_SERVER_FORCE_FM
 #define PRODAQ_SERVER_PORT 80
 #define PRODAQ_SERVER_URL "/prodaq"
 #define PRODAQ_SERVER_URL_SIZE 64
