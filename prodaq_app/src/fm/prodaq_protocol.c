@@ -67,4 +67,14 @@ prodaq_err_t prodaq_protocol_get_config(protocol_message_t *message)
     return PRODAQ_OK;
 }
 
+void prodaq_protocol_mqtt_set_response(message_t *response)
+{
+}
+
+prodaq_err_t prodaq_protocol_task(void)
+{
+    // TODO: implement ntp/mqtt/http tasks
+    return PRODAQ_OK;
+}
+
 #endif // PRODAQ_TARGET_FM
