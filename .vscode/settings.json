@@ -23,7 +23,12 @@
         "prodaq_app_config.h": "c",
         "hardware_config.h": "c",
         "protocol_config.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "http_auth_config.h": "c",
+        "unity.h": "c",
+        "protocol_mocks.h": "c",
+        "device_config.h": "c",
+        "device_mocks.h": "c"
     },
     "editor.quickSuggestions": {
         "other": true,
