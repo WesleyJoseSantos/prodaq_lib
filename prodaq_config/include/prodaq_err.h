@@ -12,6 +12,7 @@
 #ifndef __PRODAQ_ERR__H__
 #define __PRODAQ_ERR__H__
 
+#include "prodaq_config.h"
 #include <stdio.h>
 
 typedef enum
@@ -30,6 +31,7 @@ typedef enum
     PRODAQ_ERR_NOT_SUPPORTED,
     PRODAQ_ERR_NO_MEMORY,
     PRODAQ_ERR_BUFFER_OVERFLOW,
+    PRODAQ_ERR_FILE_OPEN_FAILED,
 
     // PRODAQ_ERR_HTTP_BASE = 0x200,
     PRODAQ_ERR_HTTP_INIT,
@@ -62,6 +64,7 @@ static const char *const prodaq_err_to_msg[] = {
     "Not supported",
     "No memory",
     "Buffer overflow",
+    "File open failed",
     // HTTP
     "Failed to initialize HTTP",
     "Failed to create HTTP socket",
