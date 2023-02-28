@@ -29,7 +29,11 @@
         "protocol_mocks.h": "c",
         "device_config.h": "c",
         "device_mocks.h": "c",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "prodaq_json.h": "c",
+        "gateway_config.h": "c",
+        "sensor_config.h": "c",
+        "wifi_status.h": "c"
     },
     "editor.quickSuggestions": {
         "other": true,
