@@ -17,6 +17,7 @@
 #include "prodaq_server.h"
 #include "prodaq_hardware.h"
 #include "prodaq_protocol.h"
+#include "prodaq_device.h"
 #include "prodaq_fm.h"
 #include "prodaq_err.h"
 
@@ -71,7 +72,7 @@ prodaq_err_t prodaq_app_send_message(message_t *message)
         break;
     case MSG_ID_DEVICE_CONFIG:
         printf("SET MSG_ID_DEVICE_CONFIG\n");
-        PRODAQ_ERROR_RETURN(PRODAQ_ERR_NOT_IMPLEMENTED);
+        PRODAQ_ERROR_RETURN(prodaq_device_set_config(&message->data.device));
         break;
     case MSG_ID_REQUEST:
         printf("MSG_ID_REQUEST\n");
@@ -105,7 +106,8 @@ prodaq_err_t prodaq_app_process_request(request_message_t *request)
         break;
     case MSG_ID_DEVICE_CONFIG:
         printf("GET MSG_ID_DEVICE_CONFIG\n");
-        PRODAQ_ERROR_RETURN(PRODAQ_ERR_NOT_IMPLEMENTED);
+        message.data.device.type = request->type;
+        PRODAQ_ERROR_RETURN(prodaq_device_get_config(&message.data.device));
         break;
     case MSG_ID_REQUEST:
         printf("GET MSG_ID_REQUEST\n");
