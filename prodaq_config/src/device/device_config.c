@@ -19,9 +19,9 @@ prodaq_err_t device_config_from_json(PRODAQ_FROM_JSON_PARAMETERS(device_config_t
     case DEVICE_SENSOR:
         return sensor_config_from_json(json, &ptr->sensor);
     case DEVICE_GATEWAY:
-        return PRODAQ_ERR_NOT_IMPLEMENTED;
+        return gateway_config_from_json(json, &ptr->gateway);
     case DEVICE_DATALOGGER:
-        return PRODAQ_ERR_NOT_IMPLEMENTED;
+        return datalogger_config_from_json(json, &ptr->datalogger);
     default:
         return PRODAQ_ERR_INVALID_TYPE;
     }
@@ -36,9 +36,9 @@ prodaq_err_t device_config_to_json(PRODAQ_TO_JSON_PARAMETERS(device_config_t), d
     case DEVICE_SENSOR:
         return sensor_config_to_json(&ptr->sensor, json);
     case DEVICE_GATEWAY:
-        return PRODAQ_ERR_NOT_IMPLEMENTED;
+        return gateway_config_to_json(&ptr->gateway, json);
     case DEVICE_DATALOGGER:
-        return PRODAQ_ERR_NOT_IMPLEMENTED;
+        return datalogger_config_to_json(&ptr->datalogger, json);
     default:
         return PRODAQ_ERR_INVALID_TYPE;
     }
