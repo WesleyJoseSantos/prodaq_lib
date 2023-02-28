@@ -11,6 +11,7 @@ add_library(${PROJECT_NAME}
     src/prodaq_app.c
     src/fm/prodaq_hardware.c
     src/fm/prodaq_protocol.c
+    src/fm/prodaq_device.c
 )
 
 add_executable(prodaq_app_bin
