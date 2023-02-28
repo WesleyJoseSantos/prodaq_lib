@@ -51,7 +51,7 @@ typedef enum
  */
 typedef struct
 {
-    uint32_t id;                  // ID that identify sensor
+    uint32_t id;                  // ID that identify device
     uint16_t interval;            // Interval in seconds between sensor readings
     uint16_t resolution;          // Sensor resolution
     uint16_t samples;             // Number of samples to be collected before sending data
