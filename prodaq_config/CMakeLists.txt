@@ -9,15 +9,22 @@ include_directories(../cJSON)
 add_subdirectory(test)
 
 add_library(${PROJECT_NAME}
-    src/device/device_message.c
+    src/device/datalogger_config.c
     src/device/device_config.c
+    src/device/device_message.c
     src/device/sensor_config.c
+    src/device/gateway_config.c
     src/hardware/ethernet_config.c
     src/hardware/hardware_config.c
+    src/hardware/hardware_info.c
     src/hardware/hardware_message.c
     src/hardware/ip_config.c
     src/hardware/uart_config.c
     src/hardware/wifi_config.c
+    src/network/ble_status.c
+    src/network/network_status.c
+    src/network/tcp_status.c
+    src/network/wifi_status.c
     src/protocol/http_auth_config.c
     src/protocol/http_config.c
     src/protocol/mqtt_config.c
