@@ -18,6 +18,8 @@ extern "C"
 #endif
 
 #include "sensor_config.h"
+#include "gateway_config.h"
+#include "datalogger_config.h"
 #include "prodaq_json.h"
 
 typedef enum
@@ -29,9 +31,9 @@ typedef enum
 
 typedef union
 {
-    sensor_config_t sensor; // Sensor configuration
-    // gateway_config_t gateway;       // Gateway configuration
-    // datalogger_config_t datalogger; // Datalogger configuration
+    sensor_config_t sensor;         // Sensor configuration
+    gateway_config_t gateway;       // Gateway configuration
+    datalogger_config_t datalogger; // Datalogger configuration
 } device_config_t;
 
 /**
