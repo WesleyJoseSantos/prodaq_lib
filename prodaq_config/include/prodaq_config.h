@@ -38,6 +38,9 @@
 #define PRODAQ_FILENAME_NTP "/ntp.bin"
 #define PRODAQ_FILENAME_HTTP "/http.bin"
 #define PRODAQ_FILENAME_MQTT "/mqtt.bin"
+#define PRODAQ_FILENAME_SENSOR "/sensor.bin"
+#define PRODAQ_FILENAME_GATEWAY "/gateway.bin"
+#define PRODAQ_FILENAME_DATALOGGER "/datalogger.bin"
 
 #define PRODAQ_SERVER_PORT 80
 #define PRODAQ_SERVER_URL "/prodaq"
