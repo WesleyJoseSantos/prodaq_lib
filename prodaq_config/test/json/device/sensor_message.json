@@ -3,7 +3,7 @@
   "data": {
     "type": 1,
     "enabled": true,
-    "sensor": {
+    "config": {
       "id": 1234,
       "interval": 60,
       "resolution": 10,
