@@ -26,6 +26,10 @@
 #define MOCK_DATALOGGER_MESSAGE_DATA_JSON DEVICE_JSON_PATH "datalogger_message_data.json"
 #define MOCK_DATALOGGER_MESSAGE_JSON DEVICE_JSON_PATH "datalogger_message.json"
 
+#define MOCK_GATEWAY_CONFIG_JSON DEVICE_JSON_PATH "gateway_config.json"
+#define MOCK_GATEWAY_MESSAGE_DATA_JSON DEVICE_JSON_PATH "gateway_message_data.json"
+#define MOCK_GATEWAY_MESSAGE_JSON DEVICE_JSON_PATH "gateway_message.json"
+
 #define MOCK_SENSOR_CONFIG                         \
     {                                              \
         .id = 1234,                                \
