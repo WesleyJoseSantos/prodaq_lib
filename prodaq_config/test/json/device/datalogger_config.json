@@ -1,0 +1,6 @@
+{
+    "id": 1234,
+    "interval": 60,
+    "file_path": "/file.dat",
+    "file_max_size": 1023
+}
