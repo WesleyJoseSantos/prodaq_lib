@@ -19,7 +19,12 @@
 #define DEVICE_JSON_PATH JSON_PATH "/device/"
 
 #define MOCK_SENSOR_CONFIG_JSON DEVICE_JSON_PATH "sensor_config.json"
+#define MOCK_SENSOR_MESSAGE_DATA_JSON DEVICE_JSON_PATH "sensor_message_data.json"
 #define MOCK_SENSOR_MESSAGE_JSON DEVICE_JSON_PATH "sensor_message.json"
+
+#define MOCK_DATALOGGER_CONFIG_JSON DEVICE_JSON_PATH "datalogger_config.json"
+#define MOCK_DATALOGGER_MESSAGE_DATA_JSON DEVICE_JSON_PATH "datalogger_message_data.json"
+#define MOCK_DATALOGGER_MESSAGE_JSON DEVICE_JSON_PATH "datalogger_message.json"
 
 #define MOCK_SENSOR_CONFIG                         \
     {                                              \
