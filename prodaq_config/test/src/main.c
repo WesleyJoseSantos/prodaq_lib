@@ -70,10 +70,18 @@ int main(void)
     // Device tests
     RUN_TEST(sensor_config_from_json_test);
     RUN_TEST(sensor_config_to_json_test);
+    RUN_TEST(gateway_config_from_json_test);
+    RUN_TEST(gateway_config_to_json_test);
+    RUN_TEST(datalogger_config_from_json_test);
+    RUN_TEST(datalogger_config_to_json_test);
     RUN_TEST(device_config_sensor_type_from_json_test);
     RUN_TEST(device_config_sensor_type_to_json_test);
     RUN_TEST(device_message_sensor_type_from_json_test);
     RUN_TEST(device_message_sensor_type_to_json_test);
+    RUN_TEST(device_message_gateway_type_from_json_test);
+    RUN_TEST(device_message_gateway_type_to_json_test);
+    RUN_TEST(device_message_datalogger_type_from_json_test);
+    RUN_TEST(device_message_datalogger_type_to_json_test);
 
     // ProDAQ tests
     RUN_TEST(prodaq_fm_save_test);
