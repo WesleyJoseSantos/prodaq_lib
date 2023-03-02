@@ -1,0 +1,26 @@
+{
+    "id": 3,
+    "data": {
+        "type": 2,
+        "enabled": true,
+        "config": {
+            "type": 2,
+            "enabled": true,
+            "config": {
+                "id": 1234,
+                "data_out": {
+                    "enabled": false,
+                    "path": "data_out_path",
+                    "interval": 10000,
+                    "format": 1
+                },
+                "health_out": {
+                    "enabled": false,
+                    "path": "health_out_path",
+                    "interval": 5000,
+                    "format": 1
+                }
+            }
+        }
+    }
+}
