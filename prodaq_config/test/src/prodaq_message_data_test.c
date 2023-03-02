@@ -100,7 +100,7 @@ void message_data_protocol_type_to_json_test(void)
 void message_data_device_type_from_json_test(void)
 {
     // Arrange
-    cJSON *json = json_read_file(MOCK_SENSOR_MESSAGE_JSON);
+    cJSON *json = json_read_file(MOCK_SENSOR_MESSAGE_DATA_JSON);
     device_message_t expected = { 0 };
     message_data_t  actual = { 0 };
     expected.type = DEVICE_SENSOR;
