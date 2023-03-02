@@ -21,8 +21,10 @@ add_executable(${PROJECT_NAME}
     src/hardware/uart_config_test.c
     src/hardware/wifi_config_test.c
 
+    src/device/datalogger_config_test.c
     src/device/device_config_test.c
     src/device/device_message_test.c
+    src/device/gateway_config_test.c
     src/device/sensor_config_test.c
 
     src/protocol/http_auth_config_test.c
