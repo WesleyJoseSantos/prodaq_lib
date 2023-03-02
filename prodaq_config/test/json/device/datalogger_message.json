@@ -1,7 +1,7 @@
 {
     "id": 3,
     "data": {
-        "type": 1,
+        "type": 3,
         "enabled": true,
         "config": {
             "id": 1234,
