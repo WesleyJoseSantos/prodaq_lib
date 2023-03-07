@@ -11,6 +11,7 @@
 
 #include "unity.h"
 #include "hardware_tests.h"
+#include "network_tests.h"
 #include "protocol_tests.h"
 #include "device_tests.h"
 #include "prodaq_tests.h"
@@ -44,6 +45,16 @@ int main(void)
     RUN_TEST(hardware_message_wifi_type_to_json_test);
     RUN_TEST(hardware_message_ethernet_type_to_json_test);
     RUN_TEST(hardware_message_uart_type_to_json_test);
+
+    // Network tests
+    RUN_TEST(ble_status_from_json_test);
+    RUN_TEST(ble_status_to_json_test);
+    RUN_TEST(network_status_from_json_test);
+    RUN_TEST(network_status_to_json_test);
+    RUN_TEST(tcp_status_from_json_test);
+    RUN_TEST(tcp_status_to_json_test);
+    RUN_TEST(wifi_status_from_json_test);
+    RUN_TEST(wifi_status_to_json_test);
 
     // Protocol tests
     RUN_TEST(ntp_config_from_json_test);

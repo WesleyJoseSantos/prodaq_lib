@@ -33,7 +33,10 @@
         "prodaq_json.h": "c",
         "gateway_config.h": "c",
         "sensor_config.h": "c",
-        "wifi_status.h": "c"
+        "wifi_status.h": "c",
+        "tcp_status.h": "c",
+        "hardware_tests.h": "c",
+        "device_tests.h": "c"
     },
     "editor.quickSuggestions": {
         "other": true,

@@ -21,6 +21,11 @@ add_executable(${PROJECT_NAME}
     src/hardware/uart_config_test.c
     src/hardware/wifi_config_test.c
 
+    src/network/ble_status_test.c
+    src/network/network_status_test.c
+    src/network/tcp_status_test.c
+    src/network/wifi_status_test.c
+
     src/device/datalogger_config_test.c
     src/device/device_config_test.c
     src/device/device_message_test.c
