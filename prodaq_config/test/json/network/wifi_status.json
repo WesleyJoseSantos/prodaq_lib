@@ -1,0 +1,13 @@
+{
+    "tcp": {
+        "ip": [
+            192,
+            168,
+            1,
+            1
+        ],
+        "connected": true
+    },
+    "ssid": "my_wifi_network",
+    "rssi": -70
+}

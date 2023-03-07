@@ -1,0 +1,30 @@
+{
+    "ethernet": {
+        "ip": [
+            192,
+            168,
+            1,
+            1
+        ],
+        "connected": true
+    },
+    "wifi": {
+        "tcp": {
+            "ip": [
+                192,
+                168,
+                1,
+                1
+            ],
+            "connected": true
+        },
+        "ssid": "my_wifi_network",
+        "rssi": -70
+    },
+    "ble": {
+        "rssi": -50,
+        "connected": true
+    },
+    "mqtt": true,
+    "ntp": false
+}
