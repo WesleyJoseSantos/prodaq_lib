@@ -35,7 +35,9 @@ typedef enum
     MSG_ID_PROTOCOL_CONFIG = 2, // Message id for protocol configuration
     MSG_ID_DEVICE_CONFIG = 3,   // Message id for device configuration
     MSG_ID_REQUEST = 127,       // Message id to request an resource
-    MSG_ID_RESPONSE = 255,      // Message id that responds an configuration message
+    MSG_ID_INFO = 128,          // Message id that responds an information request
+    MSG_ID_STATUS = 129,        // Message id that responds an status request
+    MSG_ID_RESPONSE = 255,      // Message id that responds an configuration request
 } message_id_t;
 
 /**
