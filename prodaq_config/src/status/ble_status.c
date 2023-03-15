@@ -9,7 +9,7 @@
  * 
  */
 
-#include "network/ble_status.h"
+#include "status/ble_status.h"
 
 prodaq_err_t ble_status_from_json(PRODAQ_FROM_JSON_PARAMETERS(ble_status_t))
 {
