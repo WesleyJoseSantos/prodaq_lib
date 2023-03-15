@@ -12,6 +12,11 @@
 #ifndef __WIFI_STATUS__H__
 #define __WIFI_STATUS__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include <inttypes.h>
 #include "tcp_status.h"
 #include "prodaq_json.h"
@@ -37,5 +42,9 @@ prodaq_err_t wifi_status_from_json(PRODAQ_FROM_JSON_PARAMETERS(wifi_status_t));
  * @return prodaq_err_t err code
  */
 prodaq_err_t wifi_status_to_json(PRODAQ_TO_JSON_PARAMETERS(wifi_status_t));
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  //!__WIFI_STATUS__H__
