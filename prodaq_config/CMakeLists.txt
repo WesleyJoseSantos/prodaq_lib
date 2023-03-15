@@ -21,10 +21,10 @@ add_library(${PROJECT_NAME}
     src/hardware/ip_config.c
     src/hardware/uart_config.c
     src/hardware/wifi_config.c
-    src/network/ble_status.c
-    src/network/network_status.c
-    src/network/tcp_status.c
-    src/network/wifi_status.c
+    src/status/ble_status.c
+    src/status/network_status.c
+    src/status/tcp_status.c
+    src/status/wifi_status.c
     src/protocol/http_auth_config.c
     src/protocol/http_config.c
     src/protocol/mqtt_config.c
