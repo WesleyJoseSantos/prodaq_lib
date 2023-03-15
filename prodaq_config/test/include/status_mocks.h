@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include "json.h"
 
-#define MOCK_NETWORK_JSON_PATH JSON_PATH "/network/"
+#define MOCK_NETWORK_JSON_PATH JSON_PATH "/status/"
 
 #define MOCK_BLE_STATUS_JSON MOCK_NETWORK_JSON_PATH "ble_status.json"
 #define MOCK_BLE_STATUS_MESSAGE_JSON MOCK_NETWORK_JSON_PATH "ble_status_message.json"

@@ -9,8 +9,8 @@
  * 
  */
 
-#include "network/wifi_status.h"
-#include "network_mocks.h"
+#include "status/wifi_status.h"
+#include "status_mocks.h"
 #include "json.h"
 #include "unity.h"
 
