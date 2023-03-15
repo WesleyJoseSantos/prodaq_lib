@@ -36,7 +36,8 @@
         "wifi_status.h": "c",
         "tcp_status.h": "c",
         "hardware_tests.h": "c",
-        "device_tests.h": "c"
+        "device_tests.h": "c",
+        "hardware_info.h": "c"
     },
     "editor.quickSuggestions": {
         "other": true,
