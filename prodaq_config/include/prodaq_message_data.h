@@ -21,6 +21,8 @@ extern "C"
 #include "protocol/protocol_message.h"
 #include "device/device_message.h"
 #include "prodaq_request.h"
+#include "info/info_message.h"
+#include "status/status_message.h"
 #include "prodaq_response.h"
 #include "prodaq_json.h"
 
@@ -50,6 +52,8 @@ typedef union
     protocol_message_t protocol; // Protocol configuration data
     device_message_t device;     // Device configuration data
     request_message_t request;   // Message to request an resource
+    info_message_t info;         // Message that responds an information request
+    status_message_t status;     // Message that responds an status request
     response_message_t response; // Message that responds an configuration message
 } message_data_t;
 
