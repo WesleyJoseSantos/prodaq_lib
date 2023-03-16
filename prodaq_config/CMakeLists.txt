@@ -34,6 +34,8 @@ add_library(${PROJECT_NAME}
 
     src/status/ble_status.c
     src/status/network_status.c
+    src/status/status_data.c
+    src/status/status_message.c
     src/status/tcp_status.c
     src/status/wifi_status.c
 
