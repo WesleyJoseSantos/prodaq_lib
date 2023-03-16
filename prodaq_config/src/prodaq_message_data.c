@@ -24,6 +24,10 @@ prodaq_err_t message_data_from_json(PRODAQ_FROM_JSON_PARAMETERS(message_data_t),
         return device_message_from_json(json, &ptr->device);
     case MSG_ID_REQUEST:
         return request_message_from_json(json, &ptr->request);
+    case MSG_ID_INFO:
+        return info_message_from_json(json, &ptr->info);
+    case MSG_ID_STATUS:
+        return status_message_from_json(json, &ptr->status);
     case MSG_ID_RESPONSE:
         return response_message_from_json(json, &ptr->response);
     default:
@@ -48,6 +52,12 @@ prodaq_err_t message_data_to_json(PRODAQ_TO_JSON_PARAMETERS(message_data_t), mes
         break;
     case MSG_ID_REQUEST:
         request_message_to_json(&ptr->request, json);
+        break;
+    case MSG_ID_INFO:
+        info_message_to_json(&ptr->info, json);
+        break;
+    case MSG_ID_STATUS:
+        status_message_to_json(&ptr->status, json);
         break;
     case MSG_ID_RESPONSE:
         response_message_to_json(&ptr->response, json);
