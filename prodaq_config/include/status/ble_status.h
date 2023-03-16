@@ -12,14 +12,14 @@
 #ifndef __BLE_STATUS__H__
 #define __BLE_STATUS__H__
 
-#include <inttypes.h>
-#include <stdbool.h>
-#include "prodaq_json.h"
-
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
+#include <inttypes.h>
+#include <stdbool.h>
+#include "prodaq_json.h"
 
 typedef struct
 {
