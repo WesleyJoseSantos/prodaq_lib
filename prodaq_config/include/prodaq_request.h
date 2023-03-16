@@ -18,6 +18,7 @@ extern "C"
 #endif
 
 #include <inttypes.h>
+
 #include "prodaq_err.h"
 #include "prodaq_json.h"
 
@@ -27,8 +28,8 @@ extern "C"
  */
 typedef struct
 {
-    uint8_t id;   // Id of requested resource
-    uint8_t type; // Type of requested resource;
+    uint16_t id;       // Id of requested resource
+    uint16_t type;     // Type of requested resource;
 } request_message_t;
 
 /**

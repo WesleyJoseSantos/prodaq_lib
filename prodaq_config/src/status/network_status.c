@@ -9,7 +9,7 @@
  * 
  */
 
-#include "network/network_status.h"
+#include "status/network_status.h"
 
 prodaq_err_t network_status_from_json(PRODAQ_FROM_JSON_PARAMETERS(network_status_t))
 {

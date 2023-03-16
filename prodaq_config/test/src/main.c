@@ -11,7 +11,7 @@
 
 #include "unity.h"
 #include "hardware_tests.h"
-#include "network_tests.h"
+#include "status_tests.h"
 #include "protocol_tests.h"
 #include "device_tests.h"
 #include "prodaq_tests.h"

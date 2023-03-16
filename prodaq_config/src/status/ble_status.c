@@ -1,5 +1,5 @@
 /**
- * @file tcp_status.h
+ * @file ble_status.h
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1
@@ -9,20 +9,20 @@
  * 
  */
 
-#include "network/tcp_status.h"
+#include "status/ble_status.h"
 
-prodaq_err_t tcp_status_from_json(PRODAQ_FROM_JSON_PARAMETERS(tcp_status_t))
+prodaq_err_t ble_status_from_json(PRODAQ_FROM_JSON_PARAMETERS(ble_status_t))
 {
     PRODAQ_JSON_CHECK_PARAMETERS();
-    PRODAQ_FROM_JSON_NUMBER_ARRAY(ip);
+    PRODAQ_FROM_JSON_NUMBER(rssi);
     PRODAQ_FROM_JSON_BOOLEAN(connected);
     return PRODAQ_OK;
 }
 
-prodaq_err_t tcp_status_to_json(PRODAQ_TO_JSON_PARAMETERS(tcp_status_t))
+prodaq_err_t ble_status_to_json(PRODAQ_TO_JSON_PARAMETERS(ble_status_t))
 {
     PRODAQ_JSON_CHECK_PARAMETERS();
-    PRODAQ_TO_JSON_NUMBER_ARRAY(ip);
+    PRODAQ_TO_JSON_NUMBER(rssi);
     PRODAQ_TO_JSON_BOOLEAN(connected);
     return PRODAQ_OK;
 }

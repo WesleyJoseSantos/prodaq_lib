@@ -16,21 +16,29 @@ add_library(${PROJECT_NAME}
     src/device/gateway_config.c
     src/hardware/ethernet_config.c
     src/hardware/hardware_config.c
-    src/hardware/hardware_info.c
     src/hardware/hardware_message.c
     src/hardware/ip_config.c
     src/hardware/uart_config.c
     src/hardware/wifi_config.c
-    src/network/ble_status.c
-    src/network/network_status.c
-    src/network/tcp_status.c
-    src/network/wifi_status.c
+
+    src/info/hardware_info.c
+    src/info/info_data.c
+    src/info/info_message.c
+
     src/protocol/http_auth_config.c
     src/protocol/http_config.c
     src/protocol/mqtt_config.c
     src/protocol/ntp_config.c
     src/protocol/protocol_config.c
     src/protocol/protocol_message.c
+
+    src/status/ble_status.c
+    src/status/network_status.c
+    src/status/status_data.c
+    src/status/status_message.c
+    src/status/tcp_status.c
+    src/status/wifi_status.c
+
     src/prodaq_fm.c
     src/prodaq_message_data.c
     src/prodaq_message.c

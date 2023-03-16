@@ -21,6 +21,8 @@ extern "C"
 #include "protocol/protocol_message.h"
 #include "device/device_message.h"
 #include "prodaq_request.h"
+#include "info/info_message.h"
+#include "status/status_message.h"
 #include "prodaq_response.h"
 #include "prodaq_json.h"
 
@@ -35,7 +37,9 @@ typedef enum
     MSG_ID_PROTOCOL_CONFIG = 2, // Message id for protocol configuration
     MSG_ID_DEVICE_CONFIG = 3,   // Message id for device configuration
     MSG_ID_REQUEST = 127,       // Message id to request an resource
-    MSG_ID_RESPONSE = 255,      // Message id that responds an configuration message
+    MSG_ID_INFO = 128,          // Message id that responds an information request
+    MSG_ID_STATUS = 129,        // Message id that responds an status request
+    MSG_ID_RESPONSE = 255,      // Message id that responds an configuration request
 } message_id_t;
 
 /**
@@ -48,6 +52,8 @@ typedef union
     protocol_message_t protocol; // Protocol configuration data
     device_message_t device;     // Device configuration data
     request_message_t request;   // Message to request an resource
+    info_message_t info;         // Message that responds an information request
+    status_message_t status;     // Message that responds an status request
     response_message_t response; // Message that responds an configuration message
 } message_data_t;
 

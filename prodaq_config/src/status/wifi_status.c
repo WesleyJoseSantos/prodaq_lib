@@ -9,7 +9,7 @@
  * 
  */
 
-#include "network/wifi_status.h"
+#include "status/wifi_status.h"
 
 prodaq_err_t wifi_status_from_json(PRODAQ_FROM_JSON_PARAMETERS(wifi_status_t))
 {

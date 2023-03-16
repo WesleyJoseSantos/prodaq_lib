@@ -12,6 +12,11 @@
 #ifndef __TCP_STATUS__H__
 #define __TCP_STATUS__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include <inttypes.h>
 #include <stdbool.h>
 #include "prodaq_json.h"
@@ -36,5 +41,9 @@ prodaq_err_t tcp_status_from_json(PRODAQ_FROM_JSON_PARAMETERS(tcp_status_t));
  * @return prodaq_err_t err code
  */
 prodaq_err_t tcp_status_to_json(PRODAQ_TO_JSON_PARAMETERS(tcp_status_t));
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  //!__TCP_STATUS__H__
