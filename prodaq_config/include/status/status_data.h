@@ -43,7 +43,7 @@ typedef union
  * 
  * @return prodaq_err_t err code
  */
-prodaq_err_t status_data_from_json(PRODAQ_FROM_JSON_PARAMETERS(status_data_t), info_type_t type);
+prodaq_err_t status_data_from_json(PRODAQ_FROM_JSON_PARAMETERS(status_data_t), status_type_t type);
 
 /**
  * @brief Deserialize an status_data_t object using an cJSON object
@@ -51,7 +51,7 @@ prodaq_err_t status_data_from_json(PRODAQ_FROM_JSON_PARAMETERS(status_data_t), i
  * @param type 
  * @return prodaq_err_t err code
  */
-prodaq_err_t status_data_to_json(PRODAQ_TO_JSON_PARAMETERS(status_data_t), info_type_t type);
+prodaq_err_t status_data_to_json(PRODAQ_TO_JSON_PARAMETERS(status_data_t), status_type_t type);
 
 #ifdef __cplusplus
 }
