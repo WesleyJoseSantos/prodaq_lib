@@ -12,6 +12,11 @@
 #ifndef __HARDWARE_INFO__H__
 #define __HARDWARE_INFO__H__
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 #include <inttypes.h>
 #include "prodaq_json.h"
 
@@ -66,5 +71,9 @@ prodaq_err_t hardware_info_from_json(PRODAQ_FROM_JSON_PARAMETERS(hardware_info_t
  * @return prodaq_err_t err code
  */
 prodaq_err_t hardware_info_to_json(PRODAQ_TO_JSON_PARAMETERS(hardware_info_t));
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  //!__HARDWARE_INFO__H__
