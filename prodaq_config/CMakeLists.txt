@@ -22,6 +22,8 @@ add_library(${PROJECT_NAME}
     src/hardware/wifi_config.c
 
     src/info/hardware_info.c
+    src/info/info_data.c
+    src/info/info_message.c
 
     src/protocol/http_auth_config.c
     src/protocol/http_config.c
