@@ -10,6 +10,10 @@
  */
 
 #include "status/status_data.h"
+#include "status/tcp_status.h"
+#include "status/wifi_status.h"
+#include "status/ble_status.h"
+#include "status/network_status.h"
 
 prodaq_err_t status_data_from_json(PRODAQ_FROM_JSON_PARAMETERS(status_data_t), status_type_t type)
 {
@@ -17,13 +21,13 @@ prodaq_err_t status_data_from_json(PRODAQ_FROM_JSON_PARAMETERS(status_data_t), s
     switch (type)
     {
     case STATUS_ETHERNET:      
-        return ethernet_info_from_json(json, &ptr->ethernet);
+        return tcp_status_from_json(json, &ptr->ethernet);
     case STATUS_WIFI:      
-        return wifi_info_from_json(json, &ptr->wifi);
+        return wifi_status_from_json(json, &ptr->wifi);
     case STATUS_BLE:      
-        return ble_info_from_json(json, &ptr->ble);
+        return ble_status_from_json(json, &ptr->ble);
     case STATUS_NETWORK:      
-        return network_info_from_json(json, &ptr->network);
+        return network_status_from_json(json, &ptr->network);
     default:
         return PRODAQ_ERR_INVALID_TYPE;
     }
@@ -36,13 +40,13 @@ prodaq_err_t status_data_to_json(PRODAQ_TO_JSON_PARAMETERS(status_data_t), statu
     switch (type)
     {
     case STATUS_ETHERNET:      
-        return ethernet_info_to_json(&ptr->ethernet, json);
+        return tcp_status_to_json(&ptr->ethernet, json);
     case STATUS_WIFI:      
-        return wifi_info_to_json(&ptr->wifi, json);
+        return wifi_status_to_json(&ptr->wifi, json);
     case STATUS_BLE:      
-        return ble_info_to_json(&ptr->ble, json);
+        return ble_status_to_json(&ptr->ble, json);
     case STATUS_NETWORK:      
-        return network_info_to_json(&ptr->network, json);
+        return network_status_to_json(&ptr->network, json);
     default:
         return PRODAQ_ERR_INVALID_TYPE;
     }
