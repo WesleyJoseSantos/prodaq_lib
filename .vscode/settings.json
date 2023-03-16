@@ -38,7 +38,9 @@
         "hardware_tests.h": "c",
         "device_tests.h": "c",
         "hardware_info.h": "c",
-        "info_message.h": "c"
+        "info_message.h": "c",
+        "status_data.h": "c",
+        "status_message.h": "c"
     },
     "editor.quickSuggestions": {
         "other": true,
