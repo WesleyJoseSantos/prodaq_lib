@@ -46,7 +46,6 @@ typedef struct
 {
     hardware_type_t type;
     char board[16];
-    char version[16];
     char mcu[16];
     uint8_t mac_wifi[6];
     uint8_t mac_ble[6];
@@ -54,7 +53,7 @@ typedef struct
     uint8_t mac_zigbee[8];
     uint8_t mac_lora[8];
     uint32_t storage_bytes;
-    hardware_features_t features; 
+    uint8_t features; 
 } hardware_info_t;
 
 /**
